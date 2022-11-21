@@ -12,4 +12,4 @@ Group Members:
 
 We have 114,000 observations without a set data distribution. We extracted about 80,000 entries and then from those we extracted all tracks of a specific genere. We opted to normalize the data with a default MinMaxScaler() from 0 to 1. The dataset was already cleaned; there was no null data, but we checked to make sure. The main attributes include but are not limited to Track ID,	Artists, Album Name, Track Name, Popularity, Duration (ms), Explicit, Danceablity, Energy, Key, Loudness, Mode, Speechiness, Acousticness, Instrumentalness, Liveness, Valence, Tempo, Time Signature, Track Genre
   
-In our data preprocessing steps, we dropped columns with redundant information and encoded the album name and track genre to allow us to compute correlations through a Seaborn heatmap. 
+In our data preprocessing steps, we dropped columns with redundant information and encoded the album name, artist, and track genre using label encoding to allow us to compute correlations through a Seaborn heatmap. We also split the data into multiple rows if there were multiple artists for same song by giving each artist a row.
