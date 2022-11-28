@@ -16,11 +16,11 @@ In our data preprocessing steps, we began by checking for null data, dropping co
 
 Within the ‘party’ genre, we divided the popularity indices into 5 classes as follows:
 
-0: 0-24
-1: 25-49
-2: 50-74
-3: 75-99
-4: 100
+0: 0-24  
+1: 25-49  
+2: 50-74  
+3: 75-99  
+4: 100  
  
 We found that the dataset entries in the party genre exist exclusively in classes 0-2. We opted to normalize the dataset with a default MinMaxScaler() from 0 to 1, and at this stage, our data was fit for the modeling stage.
  
