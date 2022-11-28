@@ -14,7 +14,7 @@ We have 114,000 observations without a set data distribution, from which we extr
 
 In our data preprocessing steps, we began by checking for null data, dropping columns with redundant information and splitting songs with multiple artists into individual rows in order to link attributes to artists. We then used a label encoder to encode categorical data such as album name, artist, and track genre. However, we quickly realized that we needed to backtrack, as our vision to predict popularity across all genres was flawed — two songs might hold similar popularity scores, but if they belong in starkly different genres, it's impossible to draw correlations between musical attributes that fluctuate with genre changes. For example, ‘I’m Yours’ by Jason Mraz is an acoustic hit with a popularity score above 80, but a low energy score, whereas ‘The Motto’ by Tiesto has high energy and a similar popularity score, stemming from the trance/EDM genre. We decided to focus in on a single genre, ‘party’, for the remainder of our project, to ensure that the general musical makeup would be similar enough to draw comparisons.
 
-Within the ‘party’ genre, we divided the popularity indices into 5 classes as follows:
+Popularity was initially a metric between 0-100, but within the ‘party’ genre, we divided the popularity indices into 5 classes as follows:
 
 0: 0-24  
 1: 25-49  
