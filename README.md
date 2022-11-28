@@ -22,5 +22,5 @@ Within the ‘party’ genre, we divided the popularity indices into 5 classes a
 3: 75-99  
 4: 100  
  
-We found that the dataset entries in the party genre exist exclusively in classes 0-2. We opted to normalize the dataset with a default MinMaxScaler() from 0 to 1, and at this stage, our data was fit for modeling.
+We found that the dataset entries in the party genre exist exclusively in classes 0-2. We computed log transforms of various features for feature expansion, and opted to normalize the dataset with a default MinMaxScaler() from 0 to 1, and at this stage, our data was fit for modeling.
  
