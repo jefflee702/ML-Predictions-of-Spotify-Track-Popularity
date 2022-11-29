@@ -28,16 +28,16 @@ We decided to do this because our working dataset is only 1000 songs from the 'p
  
 ### Model 1: Neural Network
 
-We initially planned to make a logistic regression model, but we quickly ran into an issue. The problem with using a logistic regression model is that it only does binary classification so it can not be used to classify data with multiple classes, 3 in our case. We still ran the model. Though this result was incorrect we got a baseline accuracy and an idea of how accuract our model should be by minimun.
+We initially planned to make a logistic regression model, but we quickly ran into an issue. A logistic regression model only does binary classification, so it cannot be used to classify data with more than 2 classes, 3 in our case. We still ran the model. Though this result was incorrect, it gave us a baseline accuracy to improve from.
 
 ![image](https://user-images.githubusercontent.com/91860903/204427015-abedacec-7b46-4dad-ab94-9423e8d3513d.png)
 
 
-Next we decided to make a Neural Network. We designed our initial neural network using verios relu layers and then one sigmoid layer as an output layer. We also used 'rmsprop' as optimizer and 'binary_crossentropy' as the loss function. This caused our model to be wrong as sigmoid function, the optimizer and the loss functions as meant to be used for binary classification.
+Next, we decided to make a Neural Network. We designed our initial neural network using relu layers as our hidden layers and a sigmoid layer for our output. We also used 'rmsprop' as our optimizer and 'binary_crossentropy' as our loss function. We later realized that this has the same problem as logistic regression.  Since we ended with a sigmoid layer and used binary_crossentropy, our model could only predict 2 classes.
 
 ![image](https://user-images.githubusercontent.com/91860903/204427530-4382e0b3-2f96-4358-a6ac-55709eda9449.png)
 
-The above image is the summary of our first model. To threshould the output instead of using one threshold at 0.5 we used 2 thresholds at 0.33 and 0.67 to represent the 3 classes that we have. As expected from a flawed model, the accuracy is low as shown in the image below.
+The above image is a summary of our first model. Since we were trying to predict 3 classes, we didn't use 0.5 as our threshold.  We instead set 2 thresholds, 0.33 and 0.67. As expected for a flawed model, the accuracy was low.
 
 ![image](https://user-images.githubusercontent.com/91860903/204427963-c4358141-dea0-4cbc-852b-dc15056d714d.png)
 
