@@ -24,7 +24,7 @@ We also changed the Popularity which was initially a metric between 0-100, into 
 3: 75-99  
 4: 100  
 
-We decided to do this because our dataset with all song with 'party' genre was 1000 entries and it is not effective to train a model with 100 classes with such a small dataset, so we split popularity into the above ranges. For the 'party' genre the popularity is the classes [0,1,2]. We computed log transforms of various features for feature expansion, and opted to normalize the dataset with a default MinMaxScaler() from 0 to 1, and at this stage, our data was fit for modeling.
+We decided to do this because our working dataset is only 1000 songs from the 'party' genre, which is not enoguh to train a model with 100 classes, so we split popularity into the above ranges. In our dataset, the 'party' genre only contains songs in the classes 0, 1, and 2.  After computing the log transforms of various features for feature expansion, we opted to normalize the dataset with a default MinMaxScaler() from 0 to 1, and at this stage, our data was fit for modeling.
  
 ### Model 1: Neural Network
 
