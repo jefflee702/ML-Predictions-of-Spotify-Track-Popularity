@@ -41,11 +41,11 @@ The above image is a summary of our first model. Since we were trying to predict
 
 ![image](https://user-images.githubusercontent.com/91860903/204427963-c4358141-dea0-4cbc-852b-dc15056d714d.png)
 
-To solve these issues we decided to use the categorical loss function and using a softmax layes as output. To impliment this, we tranformed our y_train set by one-hot encoding it into a data set with 3 columns each representing a class. We also decided to use 'selu' layers instead of 'relu' layers as activation and hidden layers as they handle negative values better. The image below is the summay of our model.
+We fixed our model by changing our loss funcion to categorical_crossentropy and using softmax as our output layer. To impliment this, we encoded our y_train set with one-hot encoding.  This transformed it into a dataset with 3 columns, each representing a class. We also decided to use 'selu' layers instead of 'relu' layers as activation and hidden layers as they handle negative values better. The image below is the summary of our model.
 
 ![image](https://user-images.githubusercontent.com/91860903/204428513-780fc3c2-e6bb-4fd5-bce7-25ac6045b7b0.png)
 
-This model was trained for 200 epochs with a batch size of 5 and with a validation set of 10%. This model is more accurate as it handels the categorical data better. To change the output from 3 columns back to one column, we take the column with the highest value at each row. We do this because the model outputs in each row is how strong the model think the input is of the class represented by the column. The image below shows the classification report of our model, as we can see the accuracy is 73%.
+This model was trained for 200 epochs with a batch size of 5 and with a validation set of 10%. This model is more accurate as it handels the categorical data better. To change the output from 3 columns back to one column, we take the column with the highest value at each row. We do this because the output in each row is actually a probablity of the outcome corresponding with that row. So, we are simply taking the outcome that our model says is the most likely. The image below shows the classification report of our model, as we can see, the accuracy is 73%.
 
 ![image](https://user-images.githubusercontent.com/91860903/204428993-33105d30-acf7-47d0-8862-dc2c77b31ae1.png)
 
