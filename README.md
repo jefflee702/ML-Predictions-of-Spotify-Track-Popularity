@@ -30,8 +30,7 @@ We decided to do this because our working dataset is only 1000 songs from the 'p
 
 We initially planned to make a logistic regression model, but we quickly ran into an issue. A logistic regression model only does binary classification, so it cannot be used to classify data with more than 2 classes, 3 in our case. We still ran the model. Though this result was incorrect, it gave us a baseline accuracy to improve from.
 
-![image](https://user-images.githubusercontent.com/91860903/204427015-abedacec-7b46-4dad-ab94-9423e8d3513d.png)
-
+![image](https://user-images.githubusercontent.com/91860903/204436487-c5299271-365f-4272-afbe-4383d0627a70.png)
 
 Next, we decided to make a Neural Network. We designed our initial neural network using relu layers as our hidden layers and a sigmoid layer for our output. We also used 'rmsprop' as our optimizer and 'binary_crossentropy' as our loss function. We later realized that this has the same problem as logistic regression.  Since we ended with a sigmoid layer and used binary_crossentropy, our model could only predict 2 classes.
 
@@ -39,22 +38,22 @@ Next, we decided to make a Neural Network. We designed our initial neural networ
 
 The above image is a summary of our first model. Since we were trying to predict 3 classes, we didn't use 0.5 as our threshold.  We instead set 2 thresholds, 0.33 and 0.67. As expected for a flawed model, the accuracy was low.
 
-![image](https://user-images.githubusercontent.com/91860903/204427963-c4358141-dea0-4cbc-852b-dc15056d714d.png)
+![image](https://user-images.githubusercontent.com/91860903/204436550-97c5997a-95e7-4f2d-b432-21069428f487.png)
 
-We fixed our model by changing our loss funcion to categorical_crossentropy and using softmax as our output layer. To impliment this, we encoded our y_train set with one-hot encoding.  This transformed it into a dataset with 3 columns, each representing a class. We also decided to use 'selu' layers instead of 'relu' layers as activation and hidden layers as they handle negative values better. The image below is the summary of our model.
+To solve these issues we decided to use the categorical loss function and using a softmax layes as output. To impliment this, we tranformed our y_train set by one-hot encoding it into a data set with 3 columns each representing a class. We also decided to use 'selu' layers instead of 'relu' layers as activation and hidden layers as they handle negative values better. The image below is the summay of our model.
 
 ![image](https://user-images.githubusercontent.com/91860903/204428513-780fc3c2-e6bb-4fd5-bce7-25ac6045b7b0.png)
 
-This model was trained for 200 epochs with a batch size of 5 and with a validation set of 10%. This model is more accurate as it handels the categorical data better. To change the output from 3 columns back to one column, we take the column with the highest value at each row. We do this because the output in each row is actually a probablity of the outcome corresponding with that row. So, we are simply taking the outcome that our model says is the most likely. The image below shows the classification report of our model, as we can see, the accuracy is 73%.
+This model was trained for 200 epochs with a batch size of 5 and with a validation set of 10%. This model is more accurate as it handels the categorical data better. To change the output from 3 columns back to one column, we take the column with the highest value at each row. We do this because the model outputs in each row is how strong the model think the input is of the class represented by the column. The image below shows the classification report of our model, as we can see the accuracy is 73%.
 
 ![image](https://user-images.githubusercontent.com/91860903/204428993-33105d30-acf7-47d0-8862-dc2c77b31ae1.png)
 
 The accuracy of the model is also similar to the accuracy with the training data, as shown in the image below.
 
-![image](https://user-images.githubusercontent.com/91860903/204429281-8a5c2097-e2a0-4773-9dd3-cfa9aee43dc8.png)
+![image](https://user-images.githubusercontent.com/91860903/204436637-ad362fea-06a8-4466-9180-89c94d88afac.png)
 
 We use accuray as a metric to base the strenght of our model as our goel is to know that we can predict the popularity of a song based on its various features to a reasonable accuracy. We think that our model falls within the right range in the fitting graph as the accuracy and loss of the model does not start decreasing and increasing respectively as it would if it was overfitted. We also do not think that the model is not underfitting as it is trained for a high number of epochs and the accuracy is showing an increating trend, as shown in the graph below.
 
-![image](https://user-images.githubusercontent.com/91860903/204429819-3be2dade-e287-48b3-bf58-d97b1b57ddb6.png)
+![image](https://user-images.githubusercontent.com/91860903/204436693-702f1373-8d05-480f-af90-87a2490f26b2.png)
 
 For our next model we are planning on implimenting a SVM.
