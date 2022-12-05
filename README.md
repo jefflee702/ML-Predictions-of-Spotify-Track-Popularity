@@ -128,11 +128,32 @@ print(classification_report(y_test, yhat))
 ```
 ![image](https://user-images.githubusercontent.com/91860903/204427530-4382e0b3-2f96-4358-a6ac-55709eda9449.png)
 
-The above image is a summary of our first model. Since we were trying to predict 3 classes, we didn't use 0.5 as our threshold.  We instead set 2 thresholds, 0.33 and 0.67. As expected for a flawed model, the accuracy was low.
-
 ![image](https://user-images.githubusercontent.com/91860903/204436550-97c5997a-95e7-4f2d-b432-21069428f487.png)
 
-To solve these issues, we decided to use the categorical loss function and using a softmax layer as output. To implement this, we transformed our y_train set by one-hot encoding it into a data set with 3 columns each representing a class. We also decided to use 'selu' layers instead of 'relu' layers as activation and hidden layers as they handle negative values better. The image below is the summary of our model.
+To improve the classification, our second neural network utilizes the categorical loss function and a softmax output layer. To implement this, we transformed our y_train set by one-hot encoding it into a data set with 3 columns each representing a class. 
+
+```
+one_hot_encoding = pd.get_dummies(y_train)
+y_train = one_hot_encoding
+```
+
+We also decided to use 'selu' layers instead of 'relu' layers as activation and hidden layers as they handle negative values better. 
+
+```
+model = Sequential()
+model.add(Dense(units=30, activation = 'selu', input_dim = X_train.shape[1]))
+model.add(Dense(units=15, activation = 'selu'))
+model.add(Dense(units=10, activation = 'selu'))
+model.add(Dense(units=10, activation = 'selu'))
+model.add(Dense(units=5, activation = 'selu'))
+model.add(Dense(units = 3, activation = 'softmax'))
+model.summary()
+```
+
+```
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+his = model.fit(X_train.astype('float'), y_train, validation_split=0.1, batch_size=5, epochs=200)
+```
 
 ![image](https://user-images.githubusercontent.com/91860903/204428513-780fc3c2-e6bb-4fd5-bce7-25ac6045b7b0.png)
 
