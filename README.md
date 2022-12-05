@@ -172,7 +172,7 @@ print(classification_report(y_test, yhat))
 ```
  
 ### Model 2: SVM
-We started by creating the SVM model by choosing the kernel to be rbf:
+We created the SVM model by choosing the kernel to be rbf:
  
 ```
 rbf = svm.SVC(kernel='rbf', gamma=1, decision_function_shape='ovo').fit(X_train, y_train)
