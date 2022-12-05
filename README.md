@@ -92,8 +92,40 @@ We began by splitting our dataset into the training and testing set.
 X_train, X_test, y_train, y_test = train_test_split(df_norm.drop(['popularity'], axis=1), df_norm.popularity, test_size=0.2, random_state=21)
 ```
 
-Next, we decided to make a Neural Network. We designed our initial neural network using relu layers as our hidden layers and a sigmoid layer for our output. We also used 'rmsprop' as our optimizer and 'binary_crossentropy' as our loss function. We later realized that this has the same problem as logistic regression.  Since we ended with a sigmoid layer and used binary_crossentropy, our model could only predict 2 classes.
+We designed our initial neural network with relu hidden layers and a sigmoid output layer, using 'rmsprop' as our optimizer and 'binary_crossentropy' as our loss function. Since we ended with a sigmoid layer and used binary_crossentropy, our model could only predict 2 classes.
 
+```
+model = Sequential()
+model.add(Dense(units=14, activation='relu', input_dim=X_train.shape[1]))
+model.add(Dense(units=7, activation='relu', input_dim=X_train.shape[1]))
+model.add(Dense(units=9, activation='relu', input_dim=X_train.shape[1]))
+model.add(Dense(units=7, activation='relu', input_dim=X_train.shape[1]))
+model.add(Dense(units=1, activation='sigmoid', input_dim=X_train.shape[1]))
+model.summary()
+```
+
+```
+model.compile(optimizer='rmsprop', loss='binary_crossentropy', metrics=['accuracy'])
+his = model.fit(X_train.astype('float'), y_train, validation_split=0.1, batch_size=5, epochs=200)
+```
+
+We computed the classification report as follows.
+ 
+```
+yhat_test = model.predict(X_test.astype(float))
+yhat = []
+ 
+for y in yhat_test:
+    if y <= 0.33:
+        yhat.append(0)
+    elif y <= 0.67:
+        yhat.append(1)
+    else:
+        yhat.append(2)
+ 
+print('Model Classification Report:')
+print(classification_report(y_test, yhat))
+```
 ![image](https://user-images.githubusercontent.com/91860903/204427530-4382e0b3-2f96-4358-a6ac-55709eda9449.png)
 
 The above image is a summary of our first model. Since we were trying to predict 3 classes, we didn't use 0.5 as our threshold.  We instead set 2 thresholds, 0.33 and 0.67. As expected for a flawed model, the accuracy was low.
