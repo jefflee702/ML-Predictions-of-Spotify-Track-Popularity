@@ -23,13 +23,13 @@ df = df.sample(n= 80000, random_state=21)
 ```
  
 ### Data Preprocessing
-In our data preprocessing steps, we began by checking for null data, dropping columns with redundant information such as track_id and track_name. We also split songs with multiple artists into individual rows in order to link attributes to artists. 
+In our data preprocessing steps, we began by checking for null data, dropping columns with redundant information such as track_id and track_name. 
  
 ```
 df_rem = df.drop(columns=['track_id', 'track_name'])
 ```
  
-We then used a label encoder to encode categorical data such as album name, artist, and track genre. However, we quickly realized that we needed to backtrack, as our vision to predict popularity across all genres was flawed — two songs might hold similar popularity scores, but if they belong in starkly different genres, it's impossible to draw correlations between musical attributes that fluctuate with genre changes. For example, ‘I’m Yours’ by Jason Mraz is an acoustic hit with a popularity score above 80 but a low energy score, whereas ‘The Motto’ by Tiesto has high energy and a similar popularity score, stemming from the trance/EDM genre. We decided to focus in on a single genre, ‘party’, for the remainder of our project, to ensure that the general musical makeup would be similar enough to draw comparisons. When we extracted all the songs from the 'party' genre from the original dataset, our new dataset had 1,000 entries, with the 'genre' column dropped. We also decided to drop the 'artists' column because our correlation matrix revealed that the artist name was very weakly correlated to popularity, and splitting multi-artist songs into rows was causing redundancy in the data.
+We extracted a subset containings songs exclusively from the 'party' genre, yielding a dataset with 1,000 entries, with the 'genre' column dropped. We used a label encoder to encode categorical data such as album name, artist, and track genre, and decided to drop the 'artists' column because our correlation matrix revealed that the artist name was very weakly correlated to popularity.
 
 Popularity was initially a metric between 0-100, but we split it into 5 classes as follows:
 
@@ -102,6 +102,9 @@ We use accuracy as a metric to base the strength of our model as our goal is to 
 ## V. Results
  
 ## VI. Discussion
+ 
+- We also split songs with multiple artists into individual rows in order to link attributes to artists.
+- We then used a label encoder to encode categorical data such as album name, artist, and track genre. However, we quickly realized that we needed to backtrack, as our vision to predict popularity across all genres was flawed — two songs might hold similar popularity scores, but if they belong in starkly different genres, it's impossible to draw correlations between musical attributes that fluctuate with genre changes. For example, ‘I’m Yours’ by Jason Mraz is an acoustic hit with a popularity score above 80 but a low energy score, whereas ‘The Motto’ by Tiesto has high energy and a similar popularity score, stemming from the trance/EDM genre. We decided to focus in on a single genre, ‘party’, for the remainder of our project, to ensure that the general musical makeup would be similar enough to draw comparisons.
  
 ## VII. Conclusion
  
