@@ -122,7 +122,9 @@ for y in yhat_test:
         yhat.append(1)
     else:
         yhat.append(2)
- 
+```
+
+``` 
 print('Model Classification Report:')
 print(classification_report(y_test, yhat))
 ```
@@ -150,6 +152,24 @@ model.summary()
 ```
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 his = model.fit(X_train.astype('float'), y_train, validation_split=0.1, batch_size=5, epochs=200)
+```
+
+Once again, we computed the classification report.
+ 
+yhat_test = model.predict(X_test.astype(float))
+
+```
+yhat = []
+for y in yhat_test:
+    yhat.append(np.argmax(y))
+yhat = np.array(yhat)
+
+print(yhat.shape)
+```
+
+```
+print('Model Classification Report:')
+print(classification_report(y_test, yhat))
 ```
  
 ### Model 2: SVM
