@@ -126,9 +126,6 @@ for y in yhat_test:
 print('Model Classification Report:')
 print(classification_report(y_test, yhat))
 ```
-![image](https://user-images.githubusercontent.com/91860903/204427530-4382e0b3-2f96-4358-a6ac-55709eda9449.png)
-
-![image](https://user-images.githubusercontent.com/91860903/204436550-97c5997a-95e7-4f2d-b432-21069428f487.png)
 
 Our second iteration of the neural network utilizes the categorical loss function and a softmax output layer. To implement this, we transformed our y_train set by one-hot encoding it into a data set with 3 columns each representing a class. 
 
@@ -154,7 +151,18 @@ model.summary()
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 his = model.fit(X_train.astype('float'), y_train, validation_split=0.1, batch_size=5, epochs=200)
 ```
+ 
+### Model 2: SVM
 
+## V. Results
+
+(First two images are for Neural Net V1)
+![image](https://user-images.githubusercontent.com/91860903/204427530-4382e0b3-2f96-4358-a6ac-55709eda9449.png)
+
+![image](https://user-images.githubusercontent.com/91860903/204436550-97c5997a-95e7-4f2d-b432-21069428f487.png)
+ 
+ (Neural Net V2)
+ 
 ![image](https://user-images.githubusercontent.com/91860903/204428513-780fc3c2-e6bb-4fd5-bce7-25ac6045b7b0.png)
 
 This model was trained for 200 epochs with a batch size of 5 and with a validation set of 10%. This model is more accurate because it handles the categorical data better. To change the output from 3 columns back to one column, we chose to take the column with the highest value at each row. We do this because the model outputs in each row is how strong the model think the input is of the class represented by the column. The image below shows the classification report of our model, and as we can see, the accuracy is 73%.
@@ -168,10 +176,6 @@ The accuracy of the model is also similar to the accuracy with the training data
 We use accuracy as a metric to base the strength of our model as our goal is to know that we can predict the popularity of a song based on its various features to a reasonable accuracy. We think that our model falls within the right range in the fitting graph as the accuracy and loss of the model does not start decreasing and increasing respectively as it would if it was overfitted. We also do not think that the model is not underfitting as it is trained for a high number of epochs and the accuracy is showing an increasing trend, as shown in the graph below.
 
 ![image](https://user-images.githubusercontent.com/91860903/204436693-702f1373-8d05-480f-af90-87a2490f26b2.png)
- 
-### Model 2: SVM
-
-## V. Results
  
 ## VI. Discussion
  
