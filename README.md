@@ -86,9 +86,11 @@ _=sns.scatterplot(data=df_rem, x='danceability', y='popularity')
  
 ### Model 1: Neural Network
 
-We initially planned to make a logistic regression model, but we quickly ran into an issue. A logistic regression model only does binary classification so it cannot be used to classify data with more than 2 classes; 3 in our case. We still ran the model because though this result was incorrect, it gave us a baseline accuracy to improve from.
+We began by splitting our dataset into the training and testing set.
 
-![image](https://user-images.githubusercontent.com/91860903/204436487-c5299271-365f-4272-afbe-4383d0627a70.png)
+```
+X_train, X_test, y_train, y_test = train_test_split(df_norm.drop(['popularity'], axis=1), df_norm.popularity, test_size=0.2, random_state=21)
+```
 
 Next, we decided to make a Neural Network. We designed our initial neural network using relu layers as our hidden layers and a sigmoid layer for our output. We also used 'rmsprop' as our optimizer and 'binary_crossentropy' as our loss function. We later realized that this has the same problem as logistic regression.  Since we ended with a sigmoid layer and used binary_crossentropy, our model could only predict 2 classes.
 
@@ -120,6 +122,10 @@ We use accuracy as a metric to base the strength of our model as our goal is to 
  
 - We also split songs with multiple artists into individual rows in order to link attributes to artists.
 - We then used a label encoder to encode categorical data such as album name, artist, and track genre. However, we quickly realized that we needed to backtrack, as our vision to predict popularity across all genres was flawed — two songs might hold similar popularity scores, but if they belong in starkly different genres, it's impossible to draw correlations between musical attributes that fluctuate with genre changes. For example, ‘I’m Yours’ by Jason Mraz is an acoustic hit with a popularity score above 80 but a low energy score, whereas ‘The Motto’ by Tiesto has high energy and a similar popularity score, stemming from the trance/EDM genre. We decided to focus in on a single genre, ‘party’, for the remainder of our project, to ensure that the general musical makeup would be similar enough to draw comparisons.
+ 
+We initially planned to make a logistic regression model, but we quickly ran into an issue. A logistic regression model only does binary classification so it cannot be used to classify data with more than 2 classes; 3 in our case. We still ran the model because though this result was incorrect, it gave us a baseline accuracy to improve from.
+
+![image](https://user-images.githubusercontent.com/91860903/204436487-c5299271-365f-4272-afbe-4383d0627a70.png)
  
 ## VII. Conclusion
  
