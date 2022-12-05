@@ -1,4 +1,6 @@
+<p align="center">
 ### ECS 171 Term Project
+</p>
 
 ### I: Group Members:
 1. Xiaoling Huang
