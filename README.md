@@ -69,6 +69,15 @@ We use accuracy as a metric to base the strength of our model as our goal is to 
  
 ### VIII: Contributions
  
+We did not define rigid roles for our group project, but rather collaborated on general logistics as a full group and then split into two groups for the model completion. Harshil, Cenny and Leela worked on the Neural Network, while Xiaoling, Jeff and Donna worked on the SVM, and then we came back together as a group to complete the writeup collectively. Individual contributions are as follows:
+ 
+ Harshil:
+ Cenny:
+ Leela:
+ Xiaoling:
+ Jeff:
+ Donna:
+ 
 ### IX: Summary
  
  
