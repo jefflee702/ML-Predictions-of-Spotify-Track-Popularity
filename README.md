@@ -222,6 +222,8 @@ We initially planned to make a logistic regression model, but we quickly ran int
 ![image](https://user-images.githubusercontent.com/91860903/204436487-c5299271-365f-4272-afbe-4383d0627a70.png)
  
 ## VII. Conclusion
+
+
  
 ## VIII. Collaboration
  
