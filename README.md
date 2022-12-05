@@ -130,7 +130,7 @@ print(classification_report(y_test, yhat))
 
 ![image](https://user-images.githubusercontent.com/91860903/204436550-97c5997a-95e7-4f2d-b432-21069428f487.png)
 
-To improve the classification, our second neural network utilizes the categorical loss function and a softmax output layer. To implement this, we transformed our y_train set by one-hot encoding it into a data set with 3 columns each representing a class. 
+Our second iteration of the neural network utilizes the categorical loss function and a softmax output layer. To implement this, we transformed our y_train set by one-hot encoding it into a data set with 3 columns each representing a class. 
 
 ```
 one_hot_encoding = pd.get_dummies(y_train)
@@ -168,6 +168,8 @@ The accuracy of the model is also similar to the accuracy with the training data
 We use accuracy as a metric to base the strength of our model as our goal is to know that we can predict the popularity of a song based on its various features to a reasonable accuracy. We think that our model falls within the right range in the fitting graph as the accuracy and loss of the model does not start decreasing and increasing respectively as it would if it was overfitted. We also do not think that the model is not underfitting as it is trained for a high number of epochs and the accuracy is showing an increasing trend, as shown in the graph below.
 
 ![image](https://user-images.githubusercontent.com/91860903/204436693-702f1373-8d05-480f-af90-87a2490f26b2.png)
+ 
+###. Model 2: SVM
 
 ## V. Results
  
