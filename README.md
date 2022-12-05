@@ -26,10 +26,18 @@ df = df.sample(n= 80000, random_state=21)
 In our data preprocessing steps, we began by checking for null data, dropping columns with redundant information such as track_id and track_name. 
  
 ```
+substring = 'None'
+df_rem[df_rem.apply(lambda row: row.astype(str).str.contains(substring, case=False).any(), axis=1)]
 df_rem = df.drop(columns=['track_id', 'track_name'])
 ```
  
-We extracted a subset containings songs exclusively from the 'party' genre, yielding a dataset with 1,000 entries, with the 'genre' column dropped. We used a label encoder to encode categorical data such as album name, artist, and track genre, and decided to drop the 'artists' column because our correlation matrix revealed that the artist name was very weakly correlated to popularity.
+We extracted a subset containings songs exclusively from the 'party' genre, yielding a dataset with 1,000 entries, with the 'genre' column dropped. We used a label encoder to encode album name, which is categorical data, and decided to drop the 'artists' column because our correlation matrix revealed that the artist name was very weakly correlated to popularity.
+ 
+```
+label_encoder = LabelEncoder()
+df_rem['album_name'] = label_encoder.fit_transform(df_rem['album_name'])
+df_rem = df_rem.drop(columns=['track_genre','artists'])
+```
 
 Popularity was initially a metric between 0-100, but we split it into 5 classes as follows:
 
