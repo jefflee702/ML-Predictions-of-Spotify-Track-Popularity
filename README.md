@@ -39,7 +39,7 @@ df_rem['album_name'] = label_encoder.fit_transform(df_rem['album_name'])
 df_rem = df_rem.drop(columns=['track_genre','artists'])
 ```
 
-Popularity was initially a metric between 0-100, but we split it into 5 classes as follows:
+The popularity feature in the original dataset is a value between 0-100, but in order to prepare for our model classification, we split the values into 5 classes as follows:
 
 0: 0-24  
 1: 25-49  
@@ -47,6 +47,13 @@ Popularity was initially a metric between 0-100, but we split it into 5 classes 
 3: 75-99  
 4: 100  
 
+```
+modified_df = df_rem.drop(columns=['album_name', 'popularity'])
+df_norm['album_name'] = df_rem['album_name'].to_numpy()
+df_norm['popularity'] = df_rem['popularity'].to_numpy()/25
+df_norm.popularity = df_norm.popularity.astype(int)
+```
+ 
 We decided on this division because our working dataset consists of 1,000 songs from the 'party' genre, which is not enough to train a model with 100 individual classes. In our sample dataset, the 'party' genre only contains songs in the classes 0, 1, and 2, indicating that no song had a popularity index above 74.  After computing the log transforms of various features for feature expansion, we opted to normalize the dataset with a default MinMaxScaler() from 0 to 1, and at this stage, our data was fit for modeling.
 
 ```
