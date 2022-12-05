@@ -35,6 +35,20 @@ We decided on this division because our working dataset consists of 1,000 songs 
 
 To make preliminary predictions from our processed dataset, we used the Seaborn module to compute a heatmap and pairplot, and proceeded to scatterplot various features against popularity that showed promising correlations. 
  
+```
+corr = df_norm.corr()
+fig, ax = plt.subplots(figsize=(14, 14))
+_ = sns.heatmap(corr, vmin=-1, vmax=1, center=0, annot=True, fmt='.2', cmap= 'coolwarm')
+```
+ 
+```
+_=sns.pairplot(data=df_norm)
+```
+ 
+```
+_=sns.scatterplot(data=df_rem, x='danceability', y='popularity') 
+```
+ 
 ### Model 1: Neural Network
 
 We initially planned to make a logistic regression model, but we quickly ran into an issue. A logistic regression model only does binary classification so it cannot be used to classify data with more than 2 classes; 3 in our case. We still ran the model because though this result was incorrect, it gave us a baseline accuracy to improve from.
