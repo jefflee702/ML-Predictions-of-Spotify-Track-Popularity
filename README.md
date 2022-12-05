@@ -156,9 +156,8 @@ his = model.fit(X_train.astype('float'), y_train, validation_split=0.1, batch_si
 
 Once again, we computed the classification report.
  
-yhat_test = model.predict(X_test.astype(float))
-
 ```
+yhat_test = model.predict(X_test.astype(float))
 yhat = []
 for y in yhat_test:
     yhat.append(np.argmax(y))
