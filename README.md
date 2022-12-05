@@ -172,6 +172,22 @@ print(classification_report(y_test, yhat))
 ```
  
 ### Model 2: SVM
+We started by creating the SVM model by choosing the kernel to be rbf:
+ 
+```
+rbf = svm.SVC(kernel='rbf', gamma=1, decision_function_shape='ovo').fit(X_train, y_train)
+```
+ 
+We then predicted yhat(rbf_pred) using the SVM model and X_test, and printed out the classification report:
+ 
+```
+rbf_pred = rbf.predict(X_test)
+cm_rbf = classification_report(y_test, rbf_pred)
+print(cm_rbf)
+```
+
+
+ 
 
 ## V. Results
 
