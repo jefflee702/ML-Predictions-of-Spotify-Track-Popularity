@@ -30,6 +30,10 @@ Popularity was initially a metric between 0-100, but we split it into 5 classes 
 4: 100  
 
 We decided on this division because our working dataset consists of 1,000 songs from the 'party' genre, which is not enough to train a model with 100 individual classes. In our sample dataset, the 'party' genre only contains songs in the classes 0, 1, and 2, indicating that no song had a popularity index above 74.  After computing the log transforms of various features for feature expansion, we opted to normalize the dataset with a default MinMaxScaler() from 0 to 1, and at this stage, our data was fit for modeling.
+
+### Data Exploration
+
+To make preliminary predictions from our processed dataset, we used the Seaborn module to compute a heatmap and pairplot, and proceeded to scatterplot various features against popularity that showed promising correlations. 
  
 ### Model 1: Neural Network
 
