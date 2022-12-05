@@ -1,5 +1,5 @@
 <p align="center">
-### ECS 171 Term Project
+**ECS 171 Term Project**
 </p>
 
 ### I: Group Members:
