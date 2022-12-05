@@ -61,14 +61,14 @@ We use accuracy as a metric to base the strength of our model as our goal is to 
 
 ![image](https://user-images.githubusercontent.com/91860903/204436693-702f1373-8d05-480f-af90-87a2490f26b2.png)
 
-$$$ V: Results
+### V: Results
  
-$$$ VI: Discussion
+### VI: Discussion
  
-$$$ VII: Conclusion
+### VII: Conclusion
  
-$$$ VIII: Contributions
+### VIII: Contributions
  
-$$$ IX: Summary
+### IX: Summary
  
  
