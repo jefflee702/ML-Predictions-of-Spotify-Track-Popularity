@@ -1,4 +1,4 @@
-# ECS 171 Term Project
+# ECS 171 Term Project: ML Predictions of Track Popularity
 
 ## I. Group Members
 1. Xiaoling Huang
