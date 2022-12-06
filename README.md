@@ -273,7 +273,7 @@ From here, we split into two teams.  One to build a neural net model and one to 
 ### Model 1: Neural Net
 When we built our first neural net, we had not realized the issue with our logistic regression.  We used a sigmoid layer for our output, which also did binary classification.  When we discovered this, we did some research to adapt the neural net.  This is where we replaced sigmoid with softmax and ‘binary_crossentropy’ with ‘categorical_crossentropy’.  We were also able to get advice from a friend in industry who recommended using ‘selu’ as our activation function instead of ‘relu’ and ‘adam’ as our optimizer.  These changes gave us a working model.  Then, it was a matter of tuning our hyperparameters.  We were hoping for 68% accuracy and ended up achieving 73%.  Furthermore, we knew the neural net was not overfitting because our graph of accuracy and loss showed that they were both improving.
 
-<img width="483" alt="Screen Shot 2022-12-05 at 4 30 29 PM" src="https://user-images.githubusercontent.com/51987755/205776317-3436e74e-dc78-46bc-8e5f-ddff25250652.png">
+![image](https://user-images.githubusercontent.com/91860903/204436637-ad362fea-06a8-4466-9180-89c94d88afac.png)
 
 ### Model 2: SVM
 Our SVM model also started with binary classification, but it still got 67% accuracy.  We then adjusted it to predict all classes and tested different kernels.  We settled on ‘rbf’, and this gave us an accuracy of 81%.
