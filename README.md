@@ -206,6 +206,15 @@ We use accuracy as a metric to base the strength of our model as our goal is to 
 
 ![image](https://user-images.githubusercontent.com/91860903/204436693-702f1373-8d05-480f-af90-87a2490f26b2.png)
  
+ (SVM) <br />
+ The image below shows the classification report for our SVM model. The accuracy for our model is 81%. 
+ 
+ <img width="483" alt="Screen Shot 2022-12-05 at 4 30 29 PM" src="https://user-images.githubusercontent.com/51987755/205776317-3436e74e-dc78-46bc-8e5f-ddff25250652.png">
+ 
+ We plotted our SVM classifier and considered two features, energy and loudness, as you can see in the graph below.
+ 
+ <img width="437" alt="Screen Shot 2022-12-05 at 4 24 08 PM" src="https://user-images.githubusercontent.com/51987755/205777543-f37eb729-7321-4288-b7a6-6135eedcb7a9.png">
+ 
 ## VI. Discussion
  
 - We also split songs with multiple artists into individual rows in order to link attributes to artists.
