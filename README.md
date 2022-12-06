@@ -259,7 +259,7 @@ We decided on this division because our working dataset consists of 1,000 songs 
 
 ### Data Exploration
 
-Our data exploration was disheartening because we found that all our attributes had very little correlation with popularity.  The best correlations was loudness and energy, which had -0.15 correlation with it.  Despite this, we were ended up with very good results.  This is because the models’ ability to predict is not dependent on a single correlation value.  It uses the interplay of all the different attributes to predict behavior.
+Our data exploration was disheartening because we found that all our attributes had very little correlation with popularity.  The best correlations were loudness and energy, which had -0.15 correlation with it.  Despite this, we were ended up with very good results.  This is because the models’ ability to predict is not dependent on a single correlation value.  It uses the interplay of all the different attributes to predict behavior.
 
 We initially planned to make a logistic regression model, but we quickly ran into an issue.  A logistic regression model only does binary classification so it cannot be used to classify data with more than 2 classes: 3 in our case.  We still ran the model because though this result was incorrect, it gave us a baseline accuracy to improve from.
  
@@ -268,7 +268,7 @@ We initially planned to make a logistic regression model, but we quickly ran int
 From here, we split into two teams.  One to build a neural net model and one to build an SVM model.
  
 ### Model 1: Neural Net
-We began the neural net by copy and pasting the code from our Homework 2.  We did not understand it very well at first, but by playing around with it and completing Homework 2, we were able to turn it into a functional model. Our biggest problem was that the network was designed for binary classification because that’s how we used it in homework.  We had to do some research to adapt to more than two classes, which reccomended ‘selu’ rather than ‘relu’, so we tried it and instantly got better results. This model is more accurate because it handles the categorical data better. To change the output from 3 columns back to one column, we chose to take the column with the highest value at each row. We do this because the model outputs in each row is how strong the model think the input is of the class represented by the column. After these adjustments had been made, it was just a matter of experimenting with our hyperparameters.  We were hoping to get at least 67% accuracy and ended up achieving 73%.  We were extremely happy with this.
+We began the neural net by copy and pasting the code from our Homework 2.  We did not understand it very well at first, but by playing around with it and completing Homework 2, we were able to turn it into a functional model. Our biggest problem was that the network was designed for binary classification because that’s how we used it in homework.  We had to do some research to adapt to more than two classes, which recommended ‘selu’ rather than ‘relu’, so we tried it and instantly got better results. This model is more accurate because it handles the categorical data better. To change the output from 3 columns back to one column, we chose to take the column with the highest value at each row. We do this because the model outputs in each row is how strong the model think the input is of the class represented by the column. After these adjustments had been made, it was just a matter of experimenting with our hyperparameters.  We were hoping to get at least 67% accuracy and ended up achieving 73%.  We were extremely happy with this.
  
 We use accuracy as a metric to base the strength of our model as our goal is to know that we can predict the popularity of a song based on its various features to a reasonable accuracy. We think that our model falls within the right range in the fitting graph as the accuracy and loss of the model does not start decreasing and increasing respectively as it would if it was overfitted. We also do not think that the model is not underfitting as it is trained for a high number of epochs and the accuracy is showing an increasing trend, as shown in the graph below.
 
@@ -297,7 +297,7 @@ We did not define rigid roles for our group project, but rather collaborated on 
  
  Cenny: Neural Network Team Member:
  * Made initial neural net model and experimented with hyperparameters
- * Annotated jupyter notebook and arranged into logical flow
+ * Annotated Jupyter notebook and arranged into logical flow
  * Contributed to Abstract and First Milestone write-up and wrote Discussion section of final write-up
 
  Leela:  
