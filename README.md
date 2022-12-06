@@ -262,9 +262,9 @@ We considered taking the log transform of various features, but this had a negat
 
 ### Data Exploration
 
-Our data exploration was disheartening because we found that all our attributes had very little correlation with popularity.  The best correlations were loudness and energy, which had -0.15 correlation with it.  Despite this, we were ended up with very good results.  This is because the models’ ability to predict is not dependent on a single correlation value.  It uses the interplay of all the different attributes to predict behavior.
+Data exploration was disheartening because we found that all our attributes had very low correlation with popularity.  The best correlations were loudness and energy, which both had -0.15 correlation.  Despite this, we still ended up with very good results.  This is because the model’s ability to predict was not dependent on any single correlation value.  It used the interplay of all the different attributes to predict behavior.
 
-We initially planned to make a logistic regression model, but we quickly ran into an issue.  A logistic regression model only does binary classification so it cannot be used to classify data with more than 2 classes: 3 in our case.  We still ran the model because though this result was incorrect, it gave us a baseline accuracy to improve from.
+We finished our exploration by throwing our data into a logistic regression model.  This demonstrated our first major issue.  Logistic regression does binary classification, so it cannot predict more than 2 classes, in our case 3.  The model had 56% accuracy as shown, so this was our baseline to improve from.
  
 ![image](https://user-images.githubusercontent.com/91860903/204436487-c5299271-365f-4272-afbe-4383d0627a70.png)
 
