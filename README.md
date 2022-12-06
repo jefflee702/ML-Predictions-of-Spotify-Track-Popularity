@@ -18,7 +18,7 @@ Jupyter Notebook (Google Colab link): https://colab.research.google.com/drive/1c
 ## IV. Methods
 The complete dataset imported from Kaggle contains 114,000 observations without a set data distribution, from which we extracted a subset of 8,000 entries. The main attributes include but are not limited to Track ID, Artists, Album Name, Track Name, Popularity, Duration (ms), Explicit, Danceability, Energy, Key, Loudness, Mode, Speechiness, Acousticness, Instrumentalness, Liveness, Valence, Tempo, Time Signature, and Track Genre.
 
-We used the wget command to easily allow people to download the dataset. The dataset is also present in the github repository.
+We used the wget command to easily allow people to download the dataset. The dataset is also present in the GitHub repository.
 ```
 import platform
 mysystem = platform.system()
@@ -62,7 +62,7 @@ df_rem[df_rem.apply(lambda row: row.astype(str).str.contains(substring, case=Fal
 df_rem = df.drop(columns=['track_id', 'track_name'])
 ```
  
-We extracted a subset containings songs exclusively from the 'party' genre, yielding a dataset with 1,000 entries, with the 'genre' column dropped. We used a label encoder to encode album name, which is categorical data, and decided to drop the 'artists' column because our correlation matrix revealed that the artist name was very weakly correlated to popularity.
+We extracted a subset containing songs exclusively from the 'party' genre, yielding a dataset with 1,000 entries, with the 'genre' column dropped. We used a label encoder to encode album name, which is categorical data, and decided to drop the 'artists' column because our correlation matrix revealed that artist name was very weakly correlated with popularity.
  
 ```
 label_encoder = LabelEncoder()
@@ -70,7 +70,7 @@ df_rem['album_name'] = label_encoder.fit_transform(df_rem['album_name'])
 df_rem = df_rem.drop(columns=['track_genre','artists'])
 ```
 
-The popularity feature in the original dataset is a value between 0-100, but in order to prepare for our model classification, we split the values into 5 classes as follows:
+The popularity feature in the original dataset is a value between 0-100, but to prepare for our model classification, we split the values into 5 classes as follows:
 
 0: 0-24  
 1: 25-49  
@@ -85,14 +85,14 @@ df_norm['popularity'] = df_rem['popularity'].to_numpy()/25
 df_norm.popularity = df_norm.popularity.astype(int)
 ```
  
-We took the logarithm of danceability in order to see the change in correlation.
+We took the logarithm of danceability to see how this affected correlation.
 
 ```
 df_rem['danceability_log2'] = np.log2(df_rem['danceability'])
 df_rem['danceability_log10'] = np.log10(df_rem['danceability'])
 ```
 
-We opted to normalize our data using the MinMaxScaler().
+We opted to normalize our data using MinMaxScaler().
 ```
 scaler = MinMaxScaler()
 df_norm = pd.DataFrame(scaler.fit_transform(modified_df), columns=modified_df.columns)
@@ -100,7 +100,7 @@ df_norm = pd.DataFrame(scaler.fit_transform(modified_df), columns=modified_df.co
  
 ### Data Exploration
 
-To make preliminary predictions from our processed dataset, we used the Seaborn module to compute a heatmap and pairplot, and proceeded to scatterplot various features against popularity that showed promising correlations. 
+To make preliminary predictions from our processed dataset, we used the Seaborn module to compute a heatmap and pair plot, and proceeded to scatterplot various features against popularity that showed promising correlations. 
  
 ```
 corr = df_norm.corr()
@@ -115,7 +115,7 @@ _=sns.pairplot(data=df_norm)
 ```
 _=sns.scatterplot(data=df_rem, x='danceability', y='popularity') 
 ```
-We ultimately decided to go with the untouched danceability metric instead of the logarithm.
+We decided to go with the untouched danceability metric instead of the logarithm.
 ```
 df_norm = df_norm.drop(columns=['danceability_log2','danceability_log10'])
 ```
@@ -128,7 +128,7 @@ We began by splitting our dataset into the training and testing set.
 X_train, X_test, y_train, y_test = train_test_split(df_norm.drop(['popularity'], axis=1), df_norm.popularity, test_size=0.2, random_state=21)
 ```
 
-We designed our initial neural network with relu hidden layers and a sigmoid output layer, using 'rmsprop' as our optimizer and 'binary_crossentropy' as our loss function. Since we ended with a sigmoid layer and used binary_crossentropy, our model could only predict 2 classes.
+We designed our initial neural network with 'relu' hidden layers and a sigmoid output layer, using 'rmsprop' as our optimizer and 'binary_crossentropy' as our loss function. Since we ended with a sigmoid layer and used binary_crossentropy, our model could only predict 2 classes.
 
 ```
 model = Sequential()
@@ -167,14 +167,14 @@ print('Model Classification Report:')
 print(classification_report(y_test, yhat))
 ```
 
-Our second iteration of the neural network utilizes the categorical loss function and a softmax output layer. To implement this, we transformed our y_train set by one-hot encoding it into a data set with 3 columns each representing a class. 
+Our second iteration of the neural network uses the categorical loss function and a softmax output layer. To implement this, we transformed our y_train with one-hot encoding into a data set with 3 columns each representing a class. 
 
 ```
 one_hot_encoding = pd.get_dummies(y_train)
 y_train = one_hot_encoding
 ```
 
-We also decided to use 'selu' layers instead of 'relu' layers as activation and hidden layers as they handle negative values better. Our second version of the Neural Net was trained for 200 epochs with a batch size of 5 and with a validation set of 10%. 
+We also decided to replace our 'relu' layers with 'selu' layers as they handle negative values better. Our second version of the Neural Net was trained for 200 epochs with a batch size of 5 and validation set of 10%.
 
 ```
 model = Sequential()
