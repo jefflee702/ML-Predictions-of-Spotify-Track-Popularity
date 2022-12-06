@@ -18,7 +18,7 @@ Jupyter Notebook (Google Colab link): https://colab.research.google.com/drive/1c
 ## IV. Methods
 The complete dataset imported from Kaggle contains 114,000 observations without a set data distribution, from which we extracted a subset of 8,000 entries. The main attributes include but are not limited to Track ID, Artists, Album Name, Track Name, Popularity, Duration (ms), Explicit, Danceability, Energy, Key, Loudness, Mode, Speechiness, Acousticness, Instrumentalness, Liveness, Valence, Tempo, Time Signature, and Track Genre.
 
-We used wget command to easily allow people to download the dataset. The dataset is also present in the github repository.
+We used the wget command to easily allow people to download the dataset. The dataset is also present in the github repository.
 ```
 import platform
 mysystem = platform.system()
