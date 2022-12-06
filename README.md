@@ -303,7 +303,7 @@ We did not define rigid roles for our group project, but rather collaborated on 
  Leela:  
  
  Xiaoling: SVM Team Member
- * One-hot encoded categorical features for SVM uses(not used in the final SVM model).
+ * One-hot encoded categorical features for SVM uses (not used in the final SVM model).
  * Worked on the SVM model write-up and Conclusion write-up.
  
  Jeff:  
