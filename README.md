@@ -54,7 +54,7 @@ df_norm['popularity'] = df_rem['popularity'].to_numpy()/25
 df_norm.popularity = df_norm.popularity.astype(int)
 ```
  
-We decided on this division because our working dataset consists of 1,000 songs from the 'party' genre, which is not enough to train a model with 100 individual classes. In our sample dataset, the 'party' genre only contains songs in the classes 0, 1, and 2, indicating that no song had a popularity index above 74.  After computing the log transforms of various features for feature expansion, we opted to normalize the dataset with a default MinMaxScaler() from 0 to 1, and at this stage, our data was fit for modeling.
+We took logarithm of danceability to see the change in corealation.
 
 ```
 df_rem['danceability_log2'] = np.log2(df_rem['danceability'])
@@ -82,6 +82,10 @@ _=sns.pairplot(data=df_norm)
  
 ```
 _=sns.scatterplot(data=df_rem, x='danceability', y='popularity') 
+```
+Decided to go with danceability insted of the logs.
+```
+df_norm = df_norm.drop(columns=['danceability_log2','danceability_log10'])
 ```
  
 ### Model 1: Neural Network
@@ -218,6 +222,8 @@ The graph below shows the loss and accuracy for the training and validation data
 We were unsure how to handle our huge dataset at first.  Our choice to cut down our dataset from 114,000 to 8,000 was the professor’s advice for reducing the computational load.  This helped in our initial data exploration because it was almost impossible to generate a pair plot with so many data points.  Later though, the reduction became unnecessary.  We realized we could round the numeric values of our dataset, and as mentioned we narrowed our dataset to a single genre.  We also counted songs with multiple artists as multiple observations.  We were hoping to see the impact of artists on popularity, but later decided against this.
  
 We then used a label encoder to encode categorical data such as album name, artist, and track genre. However, we quickly realized that we needed to backtrack, as our vision to predict popularity across all genres was flawed — two songs might hold similar popularity scores, but if they belong in starkly different genres, it's impossible to draw correlations between musical attributes that fluctuate with genre changes. For example, ‘I’m Yours’ by Jason Mraz is an acoustic hit with a popularity score above 80 but a low energy score, whereas ‘The Motto’ by Tiesto has high energy and a similar popularity score, stemming from the trance/EDM genre. We decided to focus in on a single genre, ‘party’, for the remainder of our project, to ensure that the general musical makeup would be similar enough to draw comparisons.
+
+We decided on this division because our working dataset consists of 1,000 songs from the 'party' genre, which is not enough to train a model with 100 individual classes. In our sample dataset, the 'party' genre only contains songs in the classes 0, 1, and 2, indicating that no song had a popularity index above 74.  After computing the log transforms of various features for feature expansion, we opted to normalize the dataset with a default MinMaxScaler() from 0 to 1, and at this stage, our data was fit for modeling.
 
 ### Data Exploration
 
