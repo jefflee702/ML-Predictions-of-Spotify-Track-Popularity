@@ -109,6 +109,8 @@ model.compile(optimizer='rmsprop', loss='binary_crossentropy', metrics=['accurac
 his = model.fit(X_train.astype('float'), y_train, validation_split=0.1, batch_size=5, epochs=200)
 ```
 
+![image](https://user-images.githubusercontent.com/91860903/204427530-4382e0b3-2f96-4358-a6ac-55709eda9449.png)
+ 
 We computed the classification report as follows.
  
 ```
@@ -185,16 +187,11 @@ print(cm_rbf)
 
 ## V. Results
 
-(First two images are for Neural Net V1)
-![image](https://user-images.githubusercontent.com/91860903/204427530-4382e0b3-2f96-4358-a6ac-55709eda9449.png)
-
+For the first iteration of our Neural Net using binary cross entropy, the classification report was as follows.
+ 
 ![image](https://user-images.githubusercontent.com/91860903/204436550-97c5997a-95e7-4f2d-b432-21069428f487.png)
- 
- (Neural Net V2)
- 
-![image](https://user-images.githubusercontent.com/91860903/204428513-780fc3c2-e6bb-4fd5-bce7-25ac6045b7b0.png)
 
-This model was trained for 200 epochs with a batch size of 5 and with a validation set of 10%. This model is more accurate because it handles the categorical data better. To change the output from 3 columns back to one column, we chose to take the column with the highest value at each row. We do this because the model outputs in each row is how strong the model think the input is of the class represented by the column. The image below shows the classification report of our model, and as we can see, the accuracy is 73%.
+Our second version of the Neural Net was trained for 200 epochs with a batch size of 5 and with a validation set of 10%. This model is more accurate because it handles the categorical data better. To change the output from 3 columns back to one column, we chose to take the column with the highest value at each row. We do this because the model outputs in each row is how strong the model think the input is of the class represented by the column. The image below shows the classification report of our model, and as we can see, the accuracy is 73%.
 
 The accuracy of the model is also similar to the accuracy with the training data, as shown in the image below.
 
