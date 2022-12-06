@@ -162,12 +162,9 @@ yhat = []
 for y in yhat_test:
     yhat.append(np.argmax(y))
 yhat = np.array(yhat)
-
-print(yhat.shape)
 ```
 
 ```
-print('Model Classification Report:')
 print(classification_report(y_test, yhat))
 ```
  
