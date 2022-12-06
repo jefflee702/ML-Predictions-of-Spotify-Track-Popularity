@@ -138,7 +138,7 @@ one_hot_encoding = pd.get_dummies(y_train)
 y_train = one_hot_encoding
 ```
 
-We also decided to use 'selu' layers instead of 'relu' layers as activation and hidden layers as they handle negative values better. 
+We also decided to use 'selu' layers instead of 'relu' layers as activation and hidden layers as they handle negative values better. Our second version of the Neural Net was trained for 200 epochs with a batch size of 5 and with a validation set of 10%. 
 
 ```
 model = Sequential()
@@ -187,13 +187,13 @@ print(cm_rbf)
 
 ## V. Results
 
+### Neural Network
+ 
 For the first iteration of our Neural Net using binary cross entropy, the classification report was as follows.
  
 ![image](https://user-images.githubusercontent.com/91860903/204436550-97c5997a-95e7-4f2d-b432-21069428f487.png)
 
-Our second version of the Neural Net was trained for 200 epochs with a batch size of 5 and with a validation set of 10%. This model is more accurate because it handles the categorical data better. To change the output from 3 columns back to one column, we chose to take the column with the highest value at each row. We do this because the model outputs in each row is how strong the model think the input is of the class represented by the column. The image below shows the classification report of our model, and as we can see, the accuracy is 73%.
-
-The accuracy of the model is also similar to the accuracy with the training data, as shown in the image below.
+The second Neural Net had an accuracy of 73%, shown in the classification report below. The accuracy of the model is also similar to the accuracy with the training data.
 
 ![image](https://user-images.githubusercontent.com/91860903/204436637-ad362fea-06a8-4466-9180-89c94d88afac.png)
 
@@ -201,7 +201,8 @@ We use accuracy as a metric to base the strength of our model as our goal is to 
 
 ![image](https://user-images.githubusercontent.com/91860903/204436693-702f1373-8d05-480f-af90-87a2490f26b2.png)
  
- (SVM) <br />
+### Support Vector Machine 
+ 
  The image below shows the classification report for our SVM model. The accuracy for our model is 81%. 
  
  <img width="483" alt="Screen Shot 2022-12-05 at 4 30 29 PM" src="https://user-images.githubusercontent.com/51987755/205776317-3436e74e-dc78-46bc-8e5f-ddff25250652.png">
@@ -225,7 +226,7 @@ Our data exploration was disheartening because we found that all our attributes 
 We capped off our starting data exploration by throwing our data into a logistic regression model.  This gave us an accuracy of 56%.  We still did not understand our data very well, but neural nets and SVM seemed to be the most capable models we had learned about in class.  So, we split into two teams, and moved forward.  As we did, we gained a better understanding of our data.
 
 ### Model 1: Neural Net
-We began the neural net by copy and pasting the code from our Homework 2.  We did not understand it very well at first, but by playing around with it and completing Homework 2, we were able to turn it into a functional model.  Our biggest problem was that the network was designed for binary classification because that’s how we used it in homework.  We had to do some research to adapt to more than two classes, which reccomended ‘selu’ rather than ‘relu’, so we tried it and instantly got better results.  After these adjustments had been made, it was just a matter of experimenting with our hyperparameters.  We were hoping to get at least 67% accuracy and ended up achieving 73%.  We were extremely happy with this.
+We began the neural net by copy and pasting the code from our Homework 2.  We did not understand it very well at first, but by playing around with it and completing Homework 2, we were able to turn it into a functional model. Our biggest problem was that the network was designed for binary classification because that’s how we used it in homework.  We had to do some research to adapt to more than two classes, which reccomended ‘selu’ rather than ‘relu’, so we tried it and instantly got better results. This model is more accurate because it handles the categorical data better. To change the output from 3 columns back to one column, we chose to take the column with the highest value at each row. We do this because the model outputs in each row is how strong the model think the input is of the class represented by the column. After these adjustments had been made, it was just a matter of experimenting with our hyperparameters.  We were hoping to get at least 67% accuracy and ended up achieving 73%.  We were extremely happy with this.
 
 ### Model 2: SVM
 Our first SVM model also had the flaw of being set to binary classification.  Still, it had 67% accuracy.  Eventually, we also made it capable of predicting more than two classes.  After this, was able to achieve 82%, which was stunning.
