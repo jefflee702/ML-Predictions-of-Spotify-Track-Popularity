@@ -216,6 +216,34 @@ We use accuracy as a metric to base the strength of our model as our goal is to 
  <img width="437" alt="Screen Shot 2022-12-05 at 4 24 08 PM" src="https://user-images.githubusercontent.com/51987755/205777543-f37eb729-7321-4288-b7a6-6135eedcb7a9.png">
  
 ## VI. Discussion
+
+### Data Preprocessing
+
+We were unsure how to handle our huge dataset at first.  Our choice to cut down our dataset from 114,000 to 8,000 was the professor’s advice for reducing the computational load.  This helped in our initial data exploration because it was almost impossible to generate a pair plot with so many data points.  Later though, the reduction became unnecessary.  We realized we could round the numeric values of our dataset, and as mentioned we narrowed our dataset to a single genre.
+
+### Data Exploration
+
+Our data exploration was disheartening because we found that all our attributes had very little correlation with popularity.  The best correlations was loudness and energy, which had -0.15 correlation with it.  Despite this, we were ended up with very good results.  This is because the models’ ability to predict is not dependent on a single correlation value.  It uses the interplay of all the different attributes to predict behavior.
+
+We capped off our starting data exploration by throwing our data into a logistic regression model.  This gave us an accuracy of 56%.  We still did not understand our data very well, but neural nets and SVM seemed to be the most capable models we had learned about in class.  So, we split into two teams, and moved forward.  As we did, we gained a better understanding of our data.
+
+### Model 1: Neural Net
+We began the neural net by copy and pasting the code from our Homework 2.  We did not understand it very well at first, but by playing around with it and completing Homework 2, we were able to turn it into a functional model.  Our biggest problem was that the network was designed for binary classification because that’s how we used it in homework.  We had to do some research to adapt to more than two classes.  We were also able to get some advice from a friend in industry.  He recommended we use ‘selu’ rather than ‘relu’, so we tried it and instantly got better results.  After these adjustments had been made, it was just a matter of experimenting with our hyperparameters.  We were hoping to get at least 67% accuracy and ended up achieving 73%.  We were extremely happy with this.
+
+### Model 2: SVM
+Our first SVM model also had the flaw of being set to binary classification.  Still, it had 67% accuracy.  Eventually, we also made it capable of predicting more than two classes.  After this, was able to achieve 82%, which was stunning.
+
+### Shortcomings
+
+The biggest shortcoming with our current models is that they only predict three classes.  This is because songs in the ‘party’ genre only fall into three of our five potential classes.  Because of this, we decided to only predict those three classes.  This made our model not generalizable.
+
+
+
+
+
+
+
+
  
 - We also split songs with multiple artists into individual rows in order to link attributes to artists.
 - We then used a label encoder to encode categorical data such as album name, artist, and track genre. However, we quickly realized that we needed to backtrack, as our vision to predict popularity across all genres was flawed — two songs might hold similar popularity scores, but if they belong in starkly different genres, it's impossible to draw correlations between musical attributes that fluctuate with genre changes. For example, ‘I’m Yours’ by Jason Mraz is an acoustic hit with a popularity score above 80 but a low energy score, whereas ‘The Motto’ by Tiesto has high energy and a similar popularity score, stemming from the trance/EDM genre. We decided to focus in on a single genre, ‘party’, for the remainder of our project, to ensure that the general musical makeup would be similar enough to draw comparisons.
