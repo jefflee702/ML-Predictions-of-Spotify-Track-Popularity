@@ -301,7 +301,11 @@ We did not define rigid roles for our group project, but rather collaborated on 
  * Contributed to Abstract and First Milestone write-up and wrote Discussion section of final write-up
 
  Leela:  
- Xiaoling:  
+ 
+ Xiaoling: SVM Team Member
+ * One-hot encoded categorical features for SVM uses(not used in the final SVM model).
+ * Worked on the SVM model write-up and Conclusion write-up.
+ 
  Jeff:  
  Donna:  
  
