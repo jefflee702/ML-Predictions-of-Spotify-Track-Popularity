@@ -234,7 +234,11 @@ During the data processing step, we used label encoder to encode the categorical
  
 We did not define rigid roles for our group project, but rather collaborated on general logistics as a full group and then split into two groups for the model completion. Harshil, Cenny and Leela worked on the Neural Network, while Xiaoling, Jeff and Donna worked on the SVM, and then we came back together as a group to complete the writeup collectively. Individual contributions are as follows:
  
- Harshil:  
+ Harshil: Neural Network team member
+ * Worked on data exploration.
+ * Worked on write-up for second milestone and figures section of final write-up.
+ * Worked on the Neural Network, including training and trying different models.
+ * Communicate with professor through Office hours and piazza.
  Cenny:  
  Leela:  
  Xiaoling:  
