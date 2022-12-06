@@ -271,16 +271,16 @@ We finished our exploration by throwing our data into a logistic regression mode
 From here, we split into two teams.  One to build a neural net model and one to build an SVM model.
  
 ### Model 1: Neural Net
-We began the neural net by copy and pasting the code from our Homework 2.  We did not understand it very well at first, but by playing around with it and completing Homework 2, we were able to turn it into a functional model. Our biggest problem was that the network was designed for binary classification because that’s how we used it in homework.  We had to do some research to adapt to more than two classes, which recommended ‘selu’ rather than ‘relu’, so we tried it and instantly got better results. This model is more accurate because it handles the categorical data better. To change the output from 3 columns back to one column, we chose to take the column with the highest value at each row. We do this because the model outputs in each row is how strong the model think the input is of the class represented by the column. After these adjustments had been made, it was just a matter of experimenting with our hyperparameters.  We were hoping to get at least 67% accuracy and ended up achieving 73%.  We were extremely happy with this.
- 
-We use accuracy as a metric to base the strength of our model as our goal is to know that we can predict the popularity of a song based on its various features to a reasonable accuracy. We think that our model falls within the right range in the fitting graph as the accuracy and loss of the model does not start decreasing and increasing respectively as it would if it was overfitted. We also do not think that the model is not underfitting as it is trained for a high number of epochs and the accuracy is showing an increasing trend, as shown in the graph below.
+When we built our first neural net, we had not realized the issue with our logistic regression.  We used a sigmoid layer for our output, which also did binary classification.  When we discovered this, we did some research to adapt the neural net.  This is where we replaced sigmoid with softmax and ‘binary_crossentropy’ with ‘categorical_crossentropy’.  We were also able to get advice from a friend in industry who recommended using ‘selu’ as our activation function instead of ‘relu’ and ‘adam’ as our optimizer.  These changes gave us a working model.  Then, it was a matter of tuning our hyperparameters.  We were hoping for 68% accuracy and ended up achieving 73%.  Furthermore, we knew the neural net was not overfitting because our graph of accuracy and loss showed that they were both improving.
+
+<img width="483" alt="Screen Shot 2022-12-05 at 4 30 29 PM" src="https://user-images.githubusercontent.com/51987755/205776317-3436e74e-dc78-46bc-8e5f-ddff25250652.png">
 
 ### Model 2: SVM
-Our first SVM model also had the flaw of being set to binary classification.  Still, it had 67% accuracy.  Eventually, we also made it capable of predicting more than two classes.  After this, was able to achieve 81%.
+Our SVM model also started with binary classification, but it still got 67% accuracy.  We then adjusted it to predict all classes and tested different kernels.  We settled on ‘rbf’, and this gave us an accuracy of 81%.
 
 ### Shortcomings
 
-The biggest shortcoming with our current models is that they only predict three classes.  This is because songs in the ‘party’ genre only fall into three of our five potential classes.  Because of this, we decided to only predict those three classes.  This made our model not generalizable.
+Our main shortcoming is that our model is not generalizable.  Since ‘party’ only had 3 classes of popularity, we designed our model to only predict those 3.  It cannot be used for genres with more or fewer than 3 classes.  Our model might also be improved by dropping more attributes with low correlation.
 
 ## VII. Conclusion
 
