@@ -294,12 +294,12 @@ We did not define rigid roles for our group project, but rather collaborated on 
  * Worked on write-up for second milestone and figures section of final write-up.
  * Worked on the Neural Network, including training and trying different models.
  * Communicate with professor through Office hours and piazza.
+ 
  Cenny: Neural Network Team Member:
- * Participated in discussions
- * Made initial neural net and experimented with hyperparameters
- * Contributed to Abstract and First Milestone write-up
+ * Made initial neural net model and experimented with hyperparameters
  * Annotated jupyter notebook and arranged into logical flow
- * Wrote discussion section of final write-up
+ * Contributed to Abstract and First Milestone write-up and wrote Discussion section of final write-up
+
  Leela:  
  Xiaoling:  
  Jeff:  
