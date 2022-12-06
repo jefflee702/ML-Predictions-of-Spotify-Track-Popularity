@@ -36,7 +36,7 @@ We began by importing the dataset, extracting the subset, and importing relevant
 df = pd.read_csv('dataset.csv')
 df = df.sample(n= 80000, random_state=21)
 ```
- 
+The following libraries were imported for the project.
 ```
 from keras.layers import Dense
 from keras.models import Sequential
