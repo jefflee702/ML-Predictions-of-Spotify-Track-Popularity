@@ -11,7 +11,7 @@
 Jupyter Notebook (Google Colab link): https://colab.research.google.com/drive/1c0VEUOjGAMLicl0ULKlNQ5caiShoe-jn?usp=sharing <br>
 
 ## II. Introduction
-<Introductory Sentence> Music is an integral part of peoples’ lives regardless their background or culture, and has been for at least 35,000 years. It can improve our mood and allows people to express their emotions in ways that words cannot. Music is very accessible in our current time, and one of the most popular music streaming services is Spotify. Therefore for our term project, we would like to explore the following dataset that holds information on popular Spotify tracks: https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset. The aim is to explore the correlation between popularity and various auditory features with the use of several Machine Learning Techniques. The goal is to reevaluate our conception of likeability within music based on what appeals to Spotify users, the popularity metric being derived from the total number of plays and how recent those plays are. Having a good predictive model would allow artists to determine what patterns in music increase popularity and help people pick out songs to whoever their listeners may be.
+<Introductory Sentence> Music is an integral part of peoples lives, regardless of their background or culture, and has been for at least 35,000 years. It can improve our mood on a daily basis and allow people to express their emotions in ways that words cannot. Music is very accessible in our current time, and currently, one of the most popular music streaming services is Spotify. Because of the relatibility of the Spotify software and popular music, for our term project, we would like to explore the following dataset that holds information on popular Spotify tracks: https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset. The aim is to explore the correlation between popularity and various auditory features with the use of several Machine Learning Techniques. In doing so, we hope to reevaluate our conception of likeability within music based on what appeals to Spotify users, the popularity metric being derived from the total number of plays and how recent those plays are. Having a good predictive model would allow artists to determine what patterns in music increase popularity within a specific genre, and help people determine what qualities attract them to a song. 
 
 ## III. Figures
  
@@ -172,22 +172,19 @@ print(classification_report(y_test, yhat))
 ```
  
 ### Model 2: SVM
-We created the SVM model by choosing the kernel to be rbf:
+For our second model, we constructed a SVM, designating the kernel to be rbf and utilizing the same testing and training split as previously computed.
  
 ```
 rbf = svm.SVC(kernel='rbf', gamma=1, decision_function_shape='ovo').fit(X_train, y_train)
 ```
  
-We then predicted yhat(rbf_pred) using the SVM model and X_test, and printed out the classification report:
+We predicted yhat(rbf_pred) using the SVM model and X_test, and printed out the corresponding classification report.
  
 ```
 rbf_pred = rbf.predict(X_test)
 cm_rbf = classification_report(y_test, rbf_pred)
 print(cm_rbf)
 ```
-
-
- 
 
 ## V. Results
 
