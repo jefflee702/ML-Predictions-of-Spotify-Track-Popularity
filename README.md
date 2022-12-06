@@ -219,7 +219,9 @@ We use accuracy as a metric to base the strength of our model as our goal is to 
 
 ### Data Preprocessing
 
-We were unsure how to handle our huge dataset at first.  Our choice to cut down our dataset from 114,000 to 8,000 was the professor’s advice for reducing the computational load.  This helped in our initial data exploration because it was almost impossible to generate a pair plot with so many data points.  Later though, the reduction became unnecessary.  We realized we could round the numeric values of our dataset, and as mentioned we narrowed our dataset to a single genre.
+We were unsure how to handle our huge dataset at first.  Our choice to cut down our dataset from 114,000 to 8,000 was the professor’s advice for reducing the computational load.  This helped in our initial data exploration because it was almost impossible to generate a pair plot with so many data points.  Later though, the reduction became unnecessary.  We realized we could round the numeric values of our dataset, and as mentioned we narrowed our dataset to a single genre.  We also counted songs with multiple artists as multiple observations.  We were hoping to see the impact of artists on popularity, but later decided against this.
+ 
+We then used a label encoder to encode categorical data such as album name, artist, and track genre. However, we quickly realized that we needed to backtrack, as our vision to predict popularity across all genres was flawed — two songs might hold similar popularity scores, but if they belong in starkly different genres, it's impossible to draw correlations between musical attributes that fluctuate with genre changes. For example, ‘I’m Yours’ by Jason Mraz is an acoustic hit with a popularity score above 80 but a low energy score, whereas ‘The Motto’ by Tiesto has high energy and a similar popularity score, stemming from the trance/EDM genre. We decided to focus in on a single genre, ‘party’, for the remainder of our project, to ensure that the general musical makeup would be similar enough to draw comparisons.
 
 ### Data Exploration
 
@@ -237,16 +239,6 @@ Our first SVM model also had the flaw of being set to binary classification.  St
 
 The biggest shortcoming with our current models is that they only predict three classes.  This is because songs in the ‘party’ genre only fall into three of our five potential classes.  Because of this, we decided to only predict those three classes.  This made our model not generalizable.
 
-
-
-
-
-
-
-
- 
-- We also split songs with multiple artists into individual rows in order to link attributes to artists.
-- We then used a label encoder to encode categorical data such as album name, artist, and track genre. However, we quickly realized that we needed to backtrack, as our vision to predict popularity across all genres was flawed — two songs might hold similar popularity scores, but if they belong in starkly different genres, it's impossible to draw correlations between musical attributes that fluctuate with genre changes. For example, ‘I’m Yours’ by Jason Mraz is an acoustic hit with a popularity score above 80 but a low energy score, whereas ‘The Motto’ by Tiesto has high energy and a similar popularity score, stemming from the trance/EDM genre. We decided to focus in on a single genre, ‘party’, for the remainder of our project, to ensure that the general musical makeup would be similar enough to draw comparisons.
  
 We initially planned to make a logistic regression model, but we quickly ran into an issue. A logistic regression model only does binary classification so it cannot be used to classify data with more than 2 classes; 3 in our case. We still ran the model because though this result was incorrect, it gave us a baseline accuracy to improve from.
 
