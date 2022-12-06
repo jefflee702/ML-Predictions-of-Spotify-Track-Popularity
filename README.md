@@ -226,7 +226,9 @@ We initially planned to make a logistic regression model, but we quickly ran int
  
 ## VII. Conclusion
 
-
+For this project we only considered the songs with a genre of “party”. We could choose different genres and plot our correlation matrix on them and see how these correlation matrices are different or similar to each other. 
+Also, since we dropped the feature “genre”, we are not taking into account the effect of genre on a song’s popularity. We could also explore a way to address how genre impacts popularity and build new models accordingly. 
+During the data processing step, we used label encoder to encode the categorical features. We could also try different encoding methods and see if they impact the accuracy of our models.
  
 ## VIII. Collaboration
  
