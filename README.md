@@ -273,7 +273,7 @@ We began the neural net by copy and pasting the code from our Homework 2.  We di
 We use accuracy as a metric to base the strength of our model as our goal is to know that we can predict the popularity of a song based on its various features to a reasonable accuracy. We think that our model falls within the right range in the fitting graph as the accuracy and loss of the model does not start decreasing and increasing respectively as it would if it was overfitted. We also do not think that the model is not underfitting as it is trained for a high number of epochs and the accuracy is showing an increasing trend, as shown in the graph below.
 
 ### Model 2: SVM
-Our first SVM model also had the flaw of being set to binary classification.  Still, it had 67% accuracy.  Eventually, we also made it capable of predicting more than two classes.  After this, was able to achieve 82%, which was stunning.
+Our first SVM model also had the flaw of being set to binary classification.  Still, it had 67% accuracy.  Eventually, we also made it capable of predicting more than two classes.  After this, was able to achieve 81%.
 
 ### Shortcomings
 
@@ -294,7 +294,12 @@ We did not define rigid roles for our group project, but rather collaborated on 
  * Worked on write-up for second milestone and figures section of final write-up.
  * Worked on the Neural Network, including training and trying different models.
  * Communicate with professor through Office hours and piazza.
- Cenny:  
+ Cenny: Neural Network Team Member:
+ * Participated in discussions
+ * Made initial neural net and experimented with hyperparameters
+ * Contributed to Abstract and First Milestone write-up
+ * Annotated jupyter notebook and arranged into logical flow
+ * Wrote discussion section of final write-up
  Leela:  
  Xiaoling:  
  Jeff:  
