@@ -197,8 +197,8 @@ The second Neural Net had an accuracy of 73%, shown in the classification report
 
 ![image](https://user-images.githubusercontent.com/91860903/204436637-ad362fea-06a8-4466-9180-89c94d88afac.png)
 
-We use accuracy as a metric to base the strength of our model as our goal is to know that we can predict the popularity of a song based on its various features to a reasonable accuracy. We think that our model falls within the right range in the fitting graph as the accuracy and loss of the model does not start decreasing and increasing respectively as it would if it was overfitted. We also do not think that the model is not underfitting as it is trained for a high number of epochs and the accuracy is showing an increasing trend, as shown in the graph below.
-
+The graph below shows the loss and accuracy for the training and validation data.
+ 
 ![image](https://user-images.githubusercontent.com/91860903/204436693-702f1373-8d05-480f-af90-87a2490f26b2.png)
  
 ### Support Vector Machine 
@@ -227,6 +227,8 @@ We capped off our starting data exploration by throwing our data into a logistic
 
 ### Model 1: Neural Net
 We began the neural net by copy and pasting the code from our Homework 2.  We did not understand it very well at first, but by playing around with it and completing Homework 2, we were able to turn it into a functional model. Our biggest problem was that the network was designed for binary classification because that’s how we used it in homework.  We had to do some research to adapt to more than two classes, which reccomended ‘selu’ rather than ‘relu’, so we tried it and instantly got better results. This model is more accurate because it handles the categorical data better. To change the output from 3 columns back to one column, we chose to take the column with the highest value at each row. We do this because the model outputs in each row is how strong the model think the input is of the class represented by the column. After these adjustments had been made, it was just a matter of experimenting with our hyperparameters.  We were hoping to get at least 67% accuracy and ended up achieving 73%.  We were extremely happy with this.
+ 
+We use accuracy as a metric to base the strength of our model as our goal is to know that we can predict the popularity of a song based on its various features to a reasonable accuracy. We think that our model falls within the right range in the fitting graph as the accuracy and loss of the model does not start decreasing and increasing respectively as it would if it was overfitted. We also do not think that the model is not underfitting as it is trained for a high number of epochs and the accuracy is showing an increasing trend, as shown in the graph below.
 
 ### Model 2: SVM
 Our first SVM model also had the flaw of being set to binary classification.  Still, it had 67% accuracy.  Eventually, we also made it capable of predicting more than two classes.  After this, was able to achieve 82%, which was stunning.
