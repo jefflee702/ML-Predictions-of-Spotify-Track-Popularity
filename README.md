@@ -18,8 +18,27 @@ Jupyter Notebook (Google Colab link): https://colab.research.google.com/drive/1c
 ## IV. Methods
 The complete dataset imported from Kaggle contains 114,000 observations without a set data distribution, from which we extracted a subset of 8,000 entries. The main attributes include but are not limited to Track ID, Artists, Album Name, Track Name, Popularity, Duration (ms), Explicit, Danceability, Energy, Key, Loudness, Mode, Speechiness, Acousticness, Instrumentalness, Liveness, Valence, Tempo, Time Signature, and Track Genre.
 
+ We began by importing the dataset, extracting the subset, and importing relevant libraries.
+
 ```
+df = pd.read_csv('dataset.csv')
 df = df.sample(n= 80000, random_state=21)
+```
+ 
+```
+from keras.layers import Dense
+from keras.models import Sequential
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import seaborn as sns
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import classification_report
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import CategoricalNB, MultinomialNB
+from sklearn.preprocessing import LabelEncoder, MinMaxScaler, OrdinalEncoder, StandardScaler
+from sklearn.svm import SVC
+from sklearn import svm
 ```
  
 ### Data Preprocessing
@@ -54,13 +73,14 @@ df_norm['popularity'] = df_rem['popularity'].to_numpy()/25
 df_norm.popularity = df_norm.popularity.astype(int)
 ```
  
-We took logarithm of danceability to see the change in corealation.
+We took the logarithm of danceability in order to see the change in correlation.
 
 ```
 df_rem['danceability_log2'] = np.log2(df_rem['danceability'])
 df_rem['danceability_log10'] = np.log10(df_rem['danceability'])
 ```
- 
+
+We opted to normalize our data using the MinMaxScaler().
 ```
 scaler = MinMaxScaler()
 df_norm = pd.DataFrame(scaler.fit_transform(modified_df), columns=modified_df.columns)
@@ -83,7 +103,7 @@ _=sns.pairplot(data=df_norm)
 ```
 _=sns.scatterplot(data=df_rem, x='danceability', y='popularity') 
 ```
-Decided to go with danceability insted of the logs.
+We ultimately decided to go with the untouched danceability metric instead of the logarithm.
 ```
 df_norm = df_norm.drop(columns=['danceability_log2','danceability_log10'])
 ```
