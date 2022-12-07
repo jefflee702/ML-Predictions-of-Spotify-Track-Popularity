@@ -312,7 +312,9 @@ We did not define rigid roles for our group project, but rather collaborated on 
  * Worked on the SVM model write-up and Conclusion write-up.
  
  Jeff: SVM Team Member
- *
+ * Ordinal encoded catgeorical features
+ * Applied various kernels for different SVM models
+ * Worked on introduction and general write-up
  
  Donna: SVM Team Member
  *
