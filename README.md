@@ -11,14 +11,14 @@
 Jupyter Notebook (Google Colab link): https://colab.research.google.com/drive/1c0VEUOjGAMLicl0ULKlNQ5caiShoe-jn?usp=sharing <br>
 
 ## II. Introduction
-<Introductory Sentence> Music is an integral part of people's lives, regardless of background or culture, and has been for at least 35,000 years. It can improve our mood on a daily basis and allow people to express their emotions in ways that words cannot. Music is very accessible in our time, and currently, one of the most popular music streaming services is Spotify. Because of the relatability of the Spotify software and popular music, for our term project, we would like to explore the following dataset that holds information on popular Spotify tracks: https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset. The aim is to explore the correlation between popularity and various auditory features with the use of several predictive Machine Learning Techniques and Models. In doing so, we hope to reevaluate our conception of likeability within music based on what appeals to Spotify users, the popularity metric being derived from the total number of plays and how recent those plays are. Having a good predictive model would allow artists to determine what patterns in music increase popularity within a specific genre, and help people determine what qualities attract them to a song. 
+<Introductory Sentence> Music is an integral part of people's lives, regardless of background or culture, and has been for at least 35,000 years. It can improve our mood on a daily basis and allow people to express their emotions in ways that words cannot. Music is very accessible in our current time, and currently, one of the most popular music streaming services is Spotify. Because of the relatability of the Spotify software and popular music, for our term project, we would like to explore the following dataset that holds information on popular Spotify tracks: https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset. The aim is to explore the correlation between popularity and various auditory features with the use of several predictive Machine Learning Techniques and Models. In doing so, we hope to reevaluate our conception of likeability within music based on what appeals to Spotify users, the popularity metric being derived from the total number of plays and how recent those plays are. Having a good predictive model would allow artists to determine what patterns in music increase popularity within a specific genre, and help people determine what qualities attract them to a song. 
 
 ## III. Figures
  
 ## IV. Methods
 The complete dataset imported from Kaggle contains 114,000 observations without a set data distribution. The data attributes are Track ID, Artists, Album Name, Track Name, Popularity, Duration (ms), Explicit, Danceability, Energy, Key, Loudness, Mode, Speechiness, Acousticness, Instrumentalness, Liveness, Valence, Tempo, Time Signature, and Track Genre.
 
-We used the wget command to allow people to easily download the dataset and run our code on Google Colab. The dataset is also present in the GitHub repository.
+We used the wget command to easily allow people to download the dataset. The dataset is also present in the GitHub repository.
 ```
 import platform
 mysystem = platform.system()
@@ -70,7 +70,7 @@ df_rem['album_name'] = label_encoder.fit_transform(df_rem['album_name'])
 df_rem = df_rem.drop(columns=['track_genre','artists'])
 ```
 
-The popularity feature in the original dataset takes values from 0-100, but we compressed it to 5 distinct classes as follows:
+The popularity feature in the original dataset takes values from 0-100, but we compressed it to 5 classes as follows:
 
 0: 0-24  
 1: 25-49  
@@ -85,14 +85,14 @@ df_norm['popularity'] = df_rem['popularity'].to_numpy()/25
 df_norm.popularity = df_norm.popularity.astype(int)
 ```
  
-We took the logarithm of danceability to see how this affected the correlation in the corresponding Data Exploration.
+We took the logarithm of danceability to see how this affected correlation.
 
 ```
 df_rem['danceability_log2'] = np.log2(df_rem['danceability'])
 df_rem['danceability_log10'] = np.log10(df_rem['danceability'])
 ```
 
-We opted to normalize our dataset using MinMaxScaler().
+We opted to normalize our data using MinMaxScaler().
 ```
 scaler = MinMaxScaler()
 df_norm = pd.DataFrame(scaler.fit_transform(modified_df), columns=modified_df.columns)
@@ -100,7 +100,7 @@ df_norm = pd.DataFrame(scaler.fit_transform(modified_df), columns=modified_df.co
  
 ### Data Exploration
 
-To make preliminary predictions from our processed dataset, we used the Seaborn module to compute a heatmap and pair plot, and proceeded to scatterplot various features against popularity that showed promising correlations, exploring potential options. 
+We used Seaborn to compute a heatmap and pair plot and proceeded to scatter plot various features against popularity that showed promising correlations. 
  
 ```
 corr = df_norm.corr()
@@ -174,7 +174,7 @@ one_hot_encoding = pd.get_dummies(y_train)
 y_train = one_hot_encoding
 ```
 
-We also decided to replace our 'relu' layers with 'selu' layers as they handle negative values better. Our second version of the Neural Net was trained for 200 epochs with a batch size of 5 and validation set of 10%.
+We also decided to replace our 'relu' layers with 'selu' layers as they handle negative values better. Our second version of the neural net was trained for 200 epochs with a batch size of 5 and validation set of 10%.
 
 ```
 model = Sequential()
@@ -225,11 +225,11 @@ print(cm_rbf)
 
 ### Neural Network
  
-For the first iteration of our Neural Net using binary cross entropy, the classification report was as follows.
+For the first iteration of our neural net using binary cross entropy, the classification report was as follows.
  
 ![image](https://user-images.githubusercontent.com/91860903/204436550-97c5997a-95e7-4f2d-b432-21069428f487.png)
 
-The second Neural Net had an accuracy of 73%, shown in the classification report below. The accuracy of the model is also similar to the accuracy with the training data.
+The second neural net had an accuracy of 73%, shown in the classification report below. The accuracy of the model is also similar to the accuracy with the training data.
 
 ![image](https://user-images.githubusercontent.com/91860903/204436637-ad362fea-06a8-4466-9180-89c94d88afac.png)
 
@@ -298,7 +298,7 @@ We did not define rigid roles for our group project, but rather collaborated on 
  * Worked on the Neural Network, including training and trying different models.
  * Communicate with professor through Office Hours and Piazza.
  
- Cenny: Neural Network Team Member
+ Cenny: Neural Network Team Member:
  * Made initial neural net model and experimented with hyperparameters
  * Annotated Jupyter notebook and arranged into logical flow
  * Contributed to Abstract and First Milestone write-up and wrote Discussion section of final write-up
