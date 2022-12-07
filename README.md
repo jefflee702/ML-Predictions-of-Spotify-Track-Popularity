@@ -30,7 +30,7 @@ if mysystem != 'Windows':
     # !unzip data.zip
 print('Please download the data using the following link:', file_download_link)
 ```
-We began by importing the dataset, extracting the subset, and importing relevant libraries.
+We imported the dataset and extracted a subset of 8,000 songs.
 
 ```
 df = pd.read_csv('dataset.csv')
