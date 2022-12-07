@@ -85,7 +85,7 @@ df_norm['popularity'] = df_rem['popularity'].to_numpy()/25
 df_norm.popularity = df_norm.popularity.astype(int)
 ```
  
-We experimented with taking the logarithm of danceability.
+We took the logarithm of danceability to see how this affected correlation.
 
 ```
 df_rem['danceability_log2'] = np.log2(df_rem['danceability'])
@@ -296,21 +296,27 @@ We did not define rigid roles for our group project, but rather collaborated on 
  * Worked on data exploration.
  * Worked on write-up for second milestone and figures section of final write-up.
  * Worked on the Neural Network, including training and trying different models.
- * Communicate with professor through Office hours and piazza.
+ * Communicate with professor through Office Hours and Piazza.
  
  Cenny: Neural Network Team Member:
  * Made initial neural net model and experimented with hyperparameters
  * Annotated Jupyter notebook and arranged into logical flow
  * Contributed to Abstract and First Milestone write-up and wrote Discussion section of final write-up
 
- Leela:  
+ Leela: Neural Network Team Member
+ * Collaborated on Data Exploration and Neural Network
+ * Worked on Abstract, Methods section of writeup
+ * General writeup organization and editing
  
  Xiaoling: SVM Team Member
  * One-hot encoded categorical features for SVM uses (not used in the final SVM model).
  * Worked on the SVM model write-up and Conclusion write-up.
  
- Jeff:  
- Donna:  
+ Jeff: SVM Team Member
+ *
+ 
+ Donna: SVM Team Member
+ *
  
 ## IX. Summary
  
