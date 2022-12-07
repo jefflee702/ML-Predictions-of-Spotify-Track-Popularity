@@ -61,8 +61,8 @@ substring = 'None'
 df_rem[df_rem.apply(lambda row: row.astype(str).str.contains(substring, case=False).any(), axis=1)]
 df_rem = df.drop(columns=['track_id', 'track_name'])
 ```
- 
-We extracted a subset containing songs exclusively from the 'party' genre, yielding a dataset with 1,000 entries, with the 'genre' column dropped. We used a label encoder to encode album name, which is categorical data and decided to drop the 'artists' column because our correlation matrix revealed that artist name was very weakly correlated with popularity.
+
+Later, extracted a different subset containing all from the 'party' genre, yielding a dataset with 1,000 entries.  We then dropped the 'genre' and 'artist' columns. We used a label encoder to encode 'album_name'.
  
 ```
 label_encoder = LabelEncoder()
