@@ -85,7 +85,7 @@ df_norm['popularity'] = df_rem['popularity'].to_numpy()/25
 df_norm.popularity = df_norm.popularity.astype(int)
 ```
  
-We took the logarithm of danceability to see how this affected correlation.
+We experimented with taking the logarithm of danceability.
 
 ```
 df_rem['danceability_log2'] = np.log2(df_rem['danceability'])
