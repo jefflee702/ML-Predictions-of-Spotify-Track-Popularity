@@ -62,7 +62,7 @@ df_rem[df_rem.apply(lambda row: row.astype(str).str.contains(substring, case=Fal
 df_rem = df.drop(columns=['track_id', 'track_name'])
 ```
 
-Later, extracted a different subset containing all from the 'party' genre, yielding a dataset with 1,000 entries.  We then dropped the 'genre' and 'artist' columns. We used a label encoder to encode 'album_name'.
+We encoded ‘album_name’ and extracted a new subset containing all songs from the 'party' genre.  This yielded a dataset with 1,000 entries.  We then dropped the 'genre' and ‘artist’ columns.
  
 ```
 label_encoder = LabelEncoder()
