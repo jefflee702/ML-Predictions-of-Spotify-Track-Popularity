@@ -100,7 +100,7 @@ df_norm = pd.DataFrame(scaler.fit_transform(modified_df), columns=modified_df.co
  
 ### Data Exploration
 
-To make preliminary predictions from our processed dataset, we used the Seaborn module to compute a heatmap and pair plot, and proceeded to scatterplot various features against popularity that showed promising correlations. 
+We used Seaborn to compute a heatmap and pair plot and proceeded to scatter plot various features against popularity that showed promising correlations. 
  
 ```
 corr = df_norm.corr()
