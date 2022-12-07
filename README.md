@@ -251,14 +251,13 @@ The graph below shows the loss and accuracy for the training and validation data
 
 ### Data Preprocessing
 
-We began with a dataset of 114,000 songs and decided to cut it down to 8,000 randomly sampled ones.  We did this to reduce computation time while keeping all the genres.  Later this became unnecessary because we decided to limit our scope to the ‘party’ genre, which reduced our dataset to 1,000 songs.  We did to prevent genre from hindering our model. The problem is that different attributes are important for different genres.  For example, ‘I’m Yours’ by Jason Mraz and ‘Radioactive’ by Imagine Dragons both have a popularity score of 80 but are completely different in their other features.  This is largely because one is an acoustic track and one is rock. Musical attributes fluctuate with depending on the genre, so when two songs belong to starkly different genres, it is impossible to see which attributes are important. We chose the ‘party’ genre specifically because it was one of the largest we could find.  There are over 100 genres, so 1,000 songs is relatively large.
-
-Also, we also assumed that artist name would be a big determiner of popularity.  To accurately measure the effect, we split songs with multiple artists into multiple entries.  This was not very helpful, though, so we reverted the change and later dropped the artist attribute altogether.  This improved our model’s accuracy.
-
-The most important change we made was compressing popularity to 5 classes (0-24, 25-49, 50-74, 100).  We decided on this division because our working dataset was only 1,000 songs.  This would not be enough training data to choose among 101 classifications.  We were then able to go a step further since 'party' only contains songs in the classes 0-24, 25-49, and 50-74.  
-
-We considered taking the log transform of various features, but this had a negative effect.  We simply normalized our numeric data with MinMaxScaler().
-
+We began with a dataset of 114,000 songs and decided to cut it down to 8,000 randomly sampled ones. We did this to reduce computation time while keeping all the genres. Later this became unnecessary because we decided to limit our scope to the ‘party’ genre, which reduced our dataset to 1,000 songs. This was to prevent genre from hindering our model. The problem is that different attributes are important for different genres. For example, ‘I’m Yours’ by Jason Mraz and ‘Radioactive’ by Imagine Dragons both have a popularity score of 80 but are completely different in their other features. This is largely because one is an acoustic track and one is rock. Musical attributes fluctuate depending on the genre, so when two songs belong to starkly different genres, it is impossible to see which attributes are important. We chose the ‘party’ genre specifically because it was one of the biggest we found. There are over 100 genres, so 1,000 songs is relatively large.
+ 
+We also assumed that artist name would be a big determiner of popularity. To accurately measure the effect, we split songs with multiple artists into multiple entries. This was not very helpful, though, so we reverted the change and later dropped the artist attribute altogether. This improved our model’s accuracy.
+ 
+The most important change we made was compressing popularity to 5 classes (0-24, 25-49, 50-74, 100). We decided on this division because our working dataset was only 1,000 songs. This would not be enough training data for our model to choose among 101 classes. We were then able to go a step further since 'party' only contains songs in the classes 0-24, 25-49, and 50-74.
+ 
+We considered taking the log transform of various features, but this had a negative effect. We simply normalized our numeric data with MinMaxScaler().
 
 ### Data Exploration
 
@@ -271,16 +270,16 @@ We finished our exploration by throwing our data into a logistic regression mode
 From here, we split into two teams.  One to build a neural net model and one to build an SVM model.
  
 ### Model 1: Neural Net
-When we built our first neural net, we had not realized the issue with our logistic regression.  We used a sigmoid layer for our output, which also did binary classification.  When we discovered this, we did some research to adapt the neural net.  This is where we replaced sigmoid with softmax and ‘binary_crossentropy’ with ‘categorical_crossentropy’.  We were also able to get advice from a friend in industry who recommended using ‘selu’ as our activation function instead of ‘relu’ and ‘adam’ as our optimizer.  These changes gave us a working model.  Then, it was a matter of tuning our hyperparameters.  We were hoping for 68% accuracy and ended up achieving 73%.  Furthermore, we knew the neural net was not overfitting because our graph of accuracy and loss showed that they were both improving.
+When we built our first neural net, we had not realized the issue with our logistic regression. We used a sigmoid layer for our output, which also did binary classification. When we discovered this, we did some research to adapt the neural net. This is where we replaced sigmoid with softmax and ‘binary_crossentropy’ with ‘categorical_crossentropy’. We were also able to get advice from a friend in industry who recommended using ‘selu’ as our activation function instead of ‘relu’ and ‘adam’ as our optimizer. These changes gave us a working model. Then, it was a matter of tuning our hyperparameters. We were hoping for 68% accuracy and ended up achieving 73%. Furthermore, we knew the neural net was not overfitting because our graph of accuracy and loss showed that they were both improving.
 
 ![image](https://user-images.githubusercontent.com/91860903/204436693-702f1373-8d05-480f-af90-87a2490f26b2.png)
 
 ### Model 2: SVM
-Our SVM model also started with binary classification, but it still got 67% accuracy.  We then adjusted it to predict all classes and tested different kernels.  We settled on ‘rbf’, and this gave us an accuracy of 81%.
+Our SVM model also started with binary classification, but it still got 67% accuracy.  We then adjusted it to predict all 3 classes and tested different kernels.  We settled on ‘rbf’, and this gave us an accuracy of 81%.
 
 ### Shortcomings
-
-Our main shortcoming is that our model is not generalizable.  Since ‘party’ only had 3 classes of popularity, we designed our model to only predict those 3.  It cannot be used for genres with more or fewer than 3 classes.  Our model might also be improved by dropping more attributes with low correlation.
+ 
+Our main shortcoming is that our model is not generalizable. Since ‘party’ only had 3 classes of popularity, we designed our model to only predict those 3. It cannot be used for genres with more or fewer than 3 classes. Our model might also be improved by dropping more attributes with low correlation.
 
 ## VII. Conclusion
 
