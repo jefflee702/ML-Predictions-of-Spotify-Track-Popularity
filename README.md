@@ -70,7 +70,7 @@ df_rem['album_name'] = label_encoder.fit_transform(df_rem['album_name'])
 df_rem = df_rem.drop(columns=['track_genre','artists'])
 ```
 
-The popularity feature in the original dataset is a value between 0-100, but to prepare for our model classification, we split the values into 5 classes as follows:
+The popularity feature in the original dataset takes values from 0-100, but we compressed it to 5 classes as follows:
 
 0: 0-24  
 1: 25-49  
