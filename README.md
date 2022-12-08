@@ -40,6 +40,10 @@ Jupyter Notebook (Google Colab link): https://colab.research.google.com/drive/1y
 
 ![Fig 3.1 Classification report SVM](https://user-images.githubusercontent.com/51987755/205776317-3436e74e-dc78-46bc-8e5f-ddff25250652.png "Fig 3.1 Classification report SVM")
 <br>*Fig 3.1 Classification report SVM*<br>
+    
+![Fig 3.1 Classification report SVM](https://user-images.githubusercontent.com/116618080/206353754-943e3516-8cac-48bf-b9df-27f5f87e1c0d.png "Fig 3.1 Classification report SVM")
+<br>*Fig 3.1 Classification report SVM*<br>
+
 
 ![Fig 3.2 Loudness vs Energy graph SVM](https://user-images.githubusercontent.com/51987755/205777543-f37eb729-7321-4288-b7a6-6135eedcb7a9.png "Fig 3.2 Loudness vs Energy graph SVM")
 <br>*Fig 3.2 Loudness vs Energy graph SVM*<br>
