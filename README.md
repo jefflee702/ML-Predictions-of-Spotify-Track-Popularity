@@ -320,13 +320,11 @@ Our SVM model also started with binary classification, but it still got 67% accu
 
 ### Shortcomings
  
-One shortcoming of our model is that it is not easily generalizable to other genres. Since the ‘party’ genre only had 3 classes of popularity, we designed our model to only predict those 3, but other genres can have a distribution ranging from 1 to 5 classes. The question of whether using division of classes still remains, as well. Our intention in dividing the classes into five groups was to ensure that we had an appropriate data sample within each subsection, but it poses other problems. For example, if you look at an entry with a popularity score of 74, it would fall into a different class as an entry with a score of 75, even though those popularity scores are extremely comparable. In order to create a larger dataset, we could have 
+One shortcoming of our model is that it is not easily generalizable to other genres. Since the ‘party’ genre only had 3 classes of popularity, we designed our model to only predict those 3, but other genres can have a distribution ranging from 1 to 5 classes. The question of whether using division of classes still remains, as well. Our intention in dividing the classes into five groups was to ensure that we had an appropriate data sample within each subsection, but it poses other problems. For example, if you look at an entry with a popularity score of 74, it would fall into a different class as an entry with a score of 75, even though those popularity scores are extremely comparable. In order to create a larger dataset, we could have sampled from a larger chunk of the original dataset, or augmented the dataset and added noise, with the idea that having more data will improve the accuracy of the prediction. If we were to take this project to the next level, we could consider various algorithms that could be applied without this classification division in order to preserve the popularity scores ranging from 0-100. For example, we could explore a random forest classifier, or regression techniques as alternatives.
 
 ## VII. Conclusion
 
-For this project we only considered the songs with a genre of “party”. We could choose different genres and plot our correlation matrix on them and see how these correlation matrices are different or similar to each other. 
-Also, since we dropped the feature “genre”, we are not taking into account the effect of genre on a song’s popularity. We could also explore a way to address how genre impacts popularity and build new models accordingly. 
-During the data processing step, we used label encoder to encode the categorical features. We could also try different encoding methods and see if they impact the accuracy of our models.
+In summary, we were able to create a SVM model with 82% accuracy and a Neural Network with 73% accuracy and meet our goal of building a popularity based prediction method. In this project, we only considered the songs with a genre of “party”, and our main direction moving forward would be to create a generalizable model, regardless of the distribution of popularity scores within a set genre. We would be curious to see whether we could simultaneously predict popularity scores across several genres to strengthen the prediction, or whether we could include artist name and draw further predictions with more data. In further exploration, we could consider different methods of encoding our categorical data. The possibilities are endless, but in the process of experimenting with various models, we had the opportunity to explore and fine tune them in order to deepen our understanding.
  
 ## VIII. Collaboration
  
@@ -345,7 +343,7 @@ We did not define rigid roles for our group project, but rather collaborated on 
 
  Leela: Neural Network Team Member
  * Collaborated on Data Exploration and Neural Network
- * Worked on Abstract, Methods section of writeup
+ * Worked on Abstract, Methods, Shortcomings sections of writeup
  * General writeup organization and editing
  
  Xiaoling: SVM Team Member
