@@ -14,7 +14,36 @@ Jupyter Notebook (Google Colab link): https://colab.research.google.com/drive/1c
 <Introductory Sentence> Music is an integral part of people's lives, regardless of background or culture, and has been for at least 35,000 years. It can improve our mood on a daily basis and allow people to express their emotions in ways that words cannot. Music is very accessible in our current time, and currently, one of the most popular music streaming services is Spotify. Because of the relatability of the Spotify software and popular music, for our term project, we would like to explore the following dataset that holds information on popular Spotify tracks: https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset. The aim is to explore the correlation between popularity and various auditory features with the use of several predictive Machine Learning Techniques and Models. In doing so, we hope to reevaluate our conception of likeability within music based on what appeals to Spotify users, the popularity metric being derived from the total number of plays and how recent those plays are. Having a good predictive model would allow artists to determine what patterns in music increase popularity within a specific genre, and help people determine what qualities attract them to a song. 
 
 ## III. Figures
- 
+![Fig 1.1 Heatmap](https://user-images.githubusercontent.com/91860903/206336842-f0882d85-4ab9-4c85-a22b-271bdbf6ad4e.png "Fig 1.1 Heatmap")
+<br>*Fig 1.1 Heatmap*<br>
+
+![Fig 1.2 Pairplot](https://user-images.githubusercontent.com/91860903/206337083-94c76aa4-2217-4ac7-94d1-aa63092765f7.png "Fig 1.2 Pairplot")
+<br>*Fig 1.2 Pairplot*<br>
+
+![Fig 1.3 Classification report Logistic regression](https://user-images.githubusercontent.com/91860903/204436487-c5299271-365f-4272-afbe-4383d0627a70.png "Fig 1.3 Classification report Logistic regression")
+<br>*Fig 1.3 Classification report Logistic regression*<br>
+
+![Fig 2.1 Binary Classifier NN Summary](https://user-images.githubusercontent.com/91860903/204427530-4382e0b3-2f96-4358-a6ac-55709eda9449.png "Fig 2.1 Binary Classifier NN Summary")
+<br>*Fig 2.1 Binary Classifier NN Summary*<br>
+
+![Fig 2.2 Classification report Binary NN](https://user-images.githubusercontent.com/91860903/204436550-97c5997a-95e7-4f2d-b432-21069428f487.png "Fig 2.2 Classification report Binary NN")
+<br>*Fig 2.2 Classification report Binary NN*<br>
+
+![Fig 2.3 Categorical Classifier NN Summary](https://user-images.githubusercontent.com/91860903/206337439-ca7be8dc-b7c4-43bf-b7a0-d31d0924b391.png "Fig 2.3 Categorical Classifier NN Summary")
+<br>*Fig 2.3 Categorical Classifier NN Summary*<br>
+
+![Fig 2.4 Classification report Categorical NN](https://user-images.githubusercontent.com/91860903/204436637-ad362fea-06a8-4466-9180-89c94d88afac.png "Fig 2.4 Classification report Categorical NN")
+<br>*Fig 2.4 Classification report Categorical NN*<br>
+
+![Fig 2.5 Accuracy vs Epochs graph Categorical NN](https://user-images.githubusercontent.com/91860903/204436693-702f1373-8d05-480f-af90-87a2490f26b2.png "Fig 2.5 Accuracy vs Epochs graph Categorical NN")
+<br>*Fig 2.5 Accuracy vs Epochs graph Categorical NN*<br>
+
+![Fig 3.1 Calssification report SVM](https://user-images.githubusercontent.com/51987755/205776317-3436e74e-dc78-46bc-8e5f-ddff25250652.png "Fig 3.1 Calssification report SVM")
+<br>*Fig 3.1 Calssification report SVM*<br>
+
+![Fig 3.2 Loudness vs Energy graph SVM](https://user-images.githubusercontent.com/51987755/205777543-f37eb729-7321-4288-b7a6-6135eedcb7a9.png "Fig 3.2 Loudness vs Energy graph SVM")
+<br>*Fig 3.2 Loudness vs Energy graph SVM*<br>
+
 ## IV. Methods
 The complete dataset imported from Kaggle contains 114,000 observations without a set data distribution. The data attributes are Track ID, Artists, Album Name, Track Name, Popularity, Duration (ms), Explicit, Danceability, Energy, Key, Loudness, Mode, Speechiness, Acousticness, Instrumentalness, Liveness, Valence, Tempo, Time Signature, and Track Genre.
 
@@ -107,11 +136,14 @@ corr = df_norm.corr()
 fig, ax = plt.subplots(figsize=(14, 14))
 _ = sns.heatmap(corr, vmin=-1, vmax=1, center=0, annot=True, fmt='.2', cmap= 'coolwarm')
 ```
- 
+![Fig 1.1 Heatmap](https://user-images.githubusercontent.com/91860903/206336842-f0882d85-4ab9-4c85-a22b-271bdbf6ad4e.png "Fig 1.1 Heatmap")
+<br>*Fig 1.1*<br>
+
 ```
 _=sns.pairplot(data=df_norm)
 ```
- 
+![Fig 1.2 Pairplot](https://user-images.githubusercontent.com/91860903/206337083-94c76aa4-2217-4ac7-94d1-aa63092765f7.png "Fig 1.2 Pairplot")
+<br>*Fig 1.2*<br>
 ```
 _=sns.scatterplot(data=df_rem, x='danceability', y='popularity') 
 ```
@@ -145,8 +177,9 @@ model.compile(optimizer='rmsprop', loss='binary_crossentropy', metrics=['accurac
 his = model.fit(X_train.astype('float'), y_train, validation_split=0.1, batch_size=5, epochs=200)
 ```
 
-![image](https://user-images.githubusercontent.com/91860903/204427530-4382e0b3-2f96-4358-a6ac-55709eda9449.png)
- 
+![Fig 2.1 Binary Classifier NN Summary](https://user-images.githubusercontent.com/91860903/204427530-4382e0b3-2f96-4358-a6ac-55709eda9449.png "Fig 2.1 Binary Classifier NN Summary")
+<br>*Fig 2.1*<br> 
+
 We computed the classification report as follows.
  
 ```
@@ -186,6 +219,8 @@ model.add(Dense(units=5, activation = 'selu'))
 model.add(Dense(units = 3, activation = 'softmax'))
 model.summary()
 ```
+![Fig 2.3 Categorical Classifier NN Summary](https://user-images.githubusercontent.com/91860903/206337439-ca7be8dc-b7c4-43bf-b7a0-d31d0924b391.png "Fig 2.3 Categorical Classifier NN Summary")
+<br>*Fig 2.3*<br>
 
 ```
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
@@ -226,26 +261,30 @@ print(cm_rbf)
 ### Neural Network
  
 For the first iteration of our neural net using binary cross entropy, the classification report was as follows.
- 
-![image](https://user-images.githubusercontent.com/91860903/204436550-97c5997a-95e7-4f2d-b432-21069428f487.png)
+
+![Fig 2.2 Classification report Binary NN](https://user-images.githubusercontent.com/91860903/204436550-97c5997a-95e7-4f2d-b432-21069428f487.png "Fig 2.2 Classification report Binary NN")
+<br>*Fig 2.2*<br>
 
 The second neural net had an accuracy of 73%, shown in the classification report below. The accuracy of the model is also similar to the accuracy with the training data.
 
-![image](https://user-images.githubusercontent.com/91860903/204436637-ad362fea-06a8-4466-9180-89c94d88afac.png)
+![Fig 2.4 Classification report Categorical NN](https://user-images.githubusercontent.com/91860903/204436637-ad362fea-06a8-4466-9180-89c94d88afac.png "Fig 2.4 Classification report Categorical NN")
+<br>*Fig 2.4*<br>
 
 The graph below shows the loss and accuracy for the training and validation data.
  
-![image](https://user-images.githubusercontent.com/91860903/204436693-702f1373-8d05-480f-af90-87a2490f26b2.png)
- 
+![Fig 2.5 Accuracy vs Epochs graph Categorical NN](https://user-images.githubusercontent.com/91860903/204436693-702f1373-8d05-480f-af90-87a2490f26b2.png "Fig 2.5 Accuracy vs Epochs graph Categorical NN")
+<br>*Fig 2.5*<br>
 ### Support Vector Machine 
  
  The image below shows the classification report for our SVM model. The accuracy for our model is 81%. 
  
- <img width="483" alt="Screen Shot 2022-12-05 at 4 30 29 PM" src="https://user-images.githubusercontent.com/51987755/205776317-3436e74e-dc78-46bc-8e5f-ddff25250652.png">
+![Fig 3.1 Calssification report SVM](https://user-images.githubusercontent.com/51987755/205776317-3436e74e-dc78-46bc-8e5f-ddff25250652.png "Fig 3.1 Calssification report SVM")
+<br>*Fig 3.1*<br>
  
- We plotted our SVM classifier and considered two features, energy and loudness, as you can see in the graph below. We decided on this based on which features had the highest correlation.
- 
- <img width="437" alt="Screen Shot 2022-12-05 at 4 24 08 PM" src="https://user-images.githubusercontent.com/51987755/205777543-f37eb729-7321-4288-b7a6-6135eedcb7a9.png">
+We plotted our SVM classifier and considered two features, energy and loudness, as you can see in the graph below. We decided on this based on which features had the highest correlation.
+
+![Fig 3.2 Loudness vs Energy graph SVM](https://user-images.githubusercontent.com/51987755/205777543-f37eb729-7321-4288-b7a6-6135eedcb7a9.png "Fig 3.2 Loudness vs Energy graph SVM")
+<br>*Fig 3.2*<br>
  
 ## VI. Discussion
 
@@ -265,14 +304,16 @@ Data exploration was disheartening because we found that all our attributes had 
 
 We finished our exploration by throwing our data into a logistic regression model.  This demonstrated our first major issue.  Logistic regression does binary classification, so it cannot predict more than 2 classes, in our case 3.  The model had 56% accuracy as shown, so this was our baseline to improve from.
  
-![image](https://user-images.githubusercontent.com/91860903/204436487-c5299271-365f-4272-afbe-4383d0627a70.png)
+![Fig 1.3 Classification report Logistic regression](https://user-images.githubusercontent.com/91860903/204436487-c5299271-365f-4272-afbe-4383d0627a70.png "Fig 1.3 Classification report Logistic regression")
+<br>*Fig 1.3*<br>
 
 From here, we split into two teams.  One to build a neural net model and one to build an SVM model.
  
 ### Model 1: Neural Net
 When we built our first neural net, we had not realized the issue with our logistic regression. We used a sigmoid layer for our output, which also did binary classification. When we discovered this, we did some research to adapt the neural net. This is where we replaced sigmoid with softmax and ‘binary_crossentropy’ with ‘categorical_crossentropy’. We were also able to get advice from a friend in industry who recommended using ‘selu’ as our activation function instead of ‘relu’ and ‘adam’ as our optimizer. These changes gave us a working model. Then, it was a matter of tuning our hyperparameters. We were hoping for 68% accuracy and ended up achieving 73%. Furthermore, we knew the neural net was not overfitting because our graph of accuracy and loss showed that they were both improving.
 
-![image](https://user-images.githubusercontent.com/91860903/204436693-702f1373-8d05-480f-af90-87a2490f26b2.png)
+![Fig 2.5 Accuracy vs Epochs graph Categorical NN](https://user-images.githubusercontent.com/91860903/204436693-702f1373-8d05-480f-af90-87a2490f26b2.png "Fig 2.5 Accuracy vs Epochs graph Categorical NN")
+<br>*Fig 2.5*<br>
 
 ### Model 2: SVM
 Our SVM model also started with binary classification, but it still got 67% accuracy.  We then adjusted it to predict all 3 classes and tested different kernels.  We settled on ‘rbf’, and this gave us an accuracy of 81%.
