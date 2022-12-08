@@ -320,7 +320,7 @@ Our SVM model also started with binary classification, but it still got 67% accu
 
 ### Shortcomings
  
-Our main shortcoming is that our model is not generalizable. Since ‘party’ only had 3 classes of popularity, we designed our model to only predict those 3. It cannot be used for genres with more or fewer than 3 classes. Our model might also be improved by dropping more attributes with low correlation.
+One shortcoming of our model is that it is not easily generalizable to other genres. Since the ‘party’ genre only had 3 classes of popularity, we designed our model to only predict those 3, but other genres can have a distribution ranging from 1 to 5 classes. The question of whether using division of classes still remains, as well. Our intention in dividing the classes into five groups was to ensure that we had an appropriate data sample within each subsection, but it poses other problems. For example, if you look at an entry with a popularity score of 74, it would fall into a different class as an entry with a score of 75, even though those popularity scores are extremely comparable. In order to create a larger dataset, we could have 
 
 ## VII. Conclusion
 
@@ -359,7 +359,5 @@ We did not define rigid roles for our group project, but rather collaborated on 
  * Worked on the SVM model and experimented with parameters
  * Created graphs/visual for SVM model
  * Worked on Results section of final write-up
- 
-## IX. Summary
  
  
