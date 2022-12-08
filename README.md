@@ -37,13 +37,9 @@ Jupyter Notebook (Google Colab link): https://colab.research.google.com/drive/1y
 
 ![Fig 2.5 Accuracy vs Epochs graph Categorical NN](https://user-images.githubusercontent.com/91860903/204436693-702f1373-8d05-480f-af90-87a2490f26b2.png "Fig 2.5 Accuracy vs Epochs graph Categorical NN")
 <br>*Fig 2.5 Accuracy vs Epochs graph Categorical NN*<br>
-
-![Fig 3.1 Classification report SVM](https://user-images.githubusercontent.com/51987755/205776317-3436e74e-dc78-46bc-8e5f-ddff25250652.png "Fig 3.1 Classification report SVM")
-<br>*Fig 3.1 Classification report SVM*<br>
     
 ![Fig 3.1 Classification report SVM](https://user-images.githubusercontent.com/116618080/206353754-943e3516-8cac-48bf-b9df-27f5f87e1c0d.png "Fig 3.1 Classification report SVM")
 <br>*Fig 3.1 Classification report SVM*<br>
-
 
 ![Fig 3.2 Loudness vs Energy graph SVM](https://user-images.githubusercontent.com/51987755/205777543-f37eb729-7321-4288-b7a6-6135eedcb7a9.png "Fig 3.2 Loudness vs Energy graph SVM")
 <br>*Fig 3.2 Loudness vs Energy graph SVM*<br>
@@ -282,7 +278,7 @@ The graph below shows the loss and accuracy for the training and validation data
  
  The image below shows the classification report for our SVM model. The accuracy for our model is 82%. 
  
-![Fig 3.1 Classification report SVM](https://user-images.githubusercontent.com/51987755/205776317-3436e74e-dc78-46bc-8e5f-ddff25250652.png "Fig 3.1 Classification report SVM")
+![Fig 3.1 Classification report SVM](https://user-images.githubusercontent.com/116618080/206353754-943e3516-8cac-48bf-b9df-27f5f87e1c0d.png "Fig 3.1 Classification report SVM")
 <br>*Fig 3.1*<br>
  
 We plotted our SVM classifier and considered two features, energy and loudness, as you can see in the graph below. We decided on this based on which features had the highest correlation.
