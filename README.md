@@ -278,7 +278,7 @@ The graph below shows the loss and accuracy for the training and validation data
  
  The image below shows the classification report for our SVM model. The accuracy for our model is 82%. 
  
-![Fig 3.1 Calssification report SVM](https://user-images.githubusercontent.com/51987755/205776317-3436e74e-dc78-46bc-8e5f-ddff25250652.png "Fig 3.1 Calssification report SVM")
+![Fig 3.1 Classification report SVM](https://user-images.githubusercontent.com/51987755/205776317-3436e74e-dc78-46bc-8e5f-ddff25250652.png "Fig 3.1 Classification report SVM")
 <br>*Fig 3.1*<br>
  
 We plotted our SVM classifier and considered two features, energy and loudness, as you can see in the graph below. We decided on this based on which features had the highest correlation.
