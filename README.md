@@ -276,7 +276,7 @@ The graph below shows the loss and accuracy for the training and validation data
 <br>*Fig 2.5*<br>
 ### Support Vector Machine 
  
- The image below shows the classification report for our SVM model. The accuracy for our model is 81%. 
+ The image below shows the classification report for our SVM model. The accuracy for our model is 82%. 
  
 ![Fig 3.1 Calssification report SVM](https://user-images.githubusercontent.com/51987755/205776317-3436e74e-dc78-46bc-8e5f-ddff25250652.png "Fig 3.1 Calssification report SVM")
 <br>*Fig 3.1*<br>
@@ -285,6 +285,10 @@ We plotted our SVM classifier and considered two features, energy and loudness, 
 
 ![Fig 3.2 Loudness vs Energy graph SVM](https://user-images.githubusercontent.com/51987755/205777543-f37eb729-7321-4288-b7a6-6135eedcb7a9.png "Fig 3.2 Loudness vs Energy graph SVM")
 <br>*Fig 3.2*<br>
+    
+### Final Model
+
+Our final model was the SVM described above. The Classification Report above in Figure 3.1 shows precision values for Classes 0, 1, and 2 as 92, 76, 0, respectively, with an accuracy of 82%. The Loudness vs Energy Graph produced by the model is shown in Figure 3.2.
  
 ## VI. Discussion
 
@@ -324,7 +328,7 @@ One shortcoming of our model is that it is not easily generalizable to other gen
 
 ## VII. Conclusion
 
-In summary, we were able to create a SVM model with 82% accuracy and a Neural Network with 73% accuracy and meet our goal of building a popularity based prediction method. In this project, we only considered the songs with a genre of “party”, and our main direction moving forward would be to create a generalizable model, regardless of the distribution of popularity scores within a set genre. We would be curious to see whether we could simultaneously predict popularity scores across several genres to strengthen the prediction, or whether we could include artist name and draw further predictions with more data. In further exploration, we could consider different methods of encoding our categorical data. The possibilities are endless, but in the process of experimenting with various models, we had the opportunity to explore and fine tune them in order to deepen our understanding.
+In summary, we were able to create a SVM model with 82% accuracy and a Neural Network with 73% accuracy and meet our goal of building a popularity based prediction method. In this project, we only considered the songs with a genre of “party”, and our main direction moving forward would be to create a generalizable model, regardless of the distribution of popularity scores within a set genre. We would be curious to see whether we could simultaneously predict popularity scores across several genres to strengthen the prediction, or whether we could include artist name and draw further predictions with more data. In further exploration, we could consider different methods of encoding our categorical data. The data that we have was restrictive in the sense that there were few datapoints with a popularity score above 50, for example, within the genre of 'party', there were only three datapoints above 50. Ideally, we'd like to work with a more well rounded dataset because this had a high impact on our testing data. The possibilities are endless, but in the process of experimenting with various models, we had the opportunity to explore and fine tune them in order to deepen our understanding.
  
 ## VIII. Collaboration
  
