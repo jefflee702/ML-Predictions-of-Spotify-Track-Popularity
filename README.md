@@ -335,7 +335,7 @@ We did not define rigid roles for our group project, but rather collaborated on 
  Harshil: Neural Network team member
  * Worked on data exploration.
  * Worked on write-up for second milestone and figures section of final write-up.
- * Worked on the Neural Network, including training and trying different models.
+ * Worked on the Categorical Neural Network, including training and trying different models.
  * Communicate with professor through Office Hours and Piazza.
  
  Cenny: Neural Network Team Member:
