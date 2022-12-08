@@ -343,7 +343,7 @@ We did not define rigid roles for our group project, but rather collaborated on 
 
  Leela: Neural Network Team Member
  * Collaborated on Data Exploration and Neural Network
- * Worked on Abstract, Methods, Shortcomings sections of writeup
+ * Worked on Abstract, Methods, Shortcomings, Conclusion sections of writeup
  * General writeup organization and editing
  
  Xiaoling: SVM Team Member
