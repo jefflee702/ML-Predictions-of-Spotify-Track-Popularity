@@ -288,7 +288,7 @@ We plotted our SVM classifier and considered two features, energy and loudness, 
     
 ### Final Model
 
-Our final model was the SVM described above. The Classification Report above in Figure 3.1 shows precision values for Classes 0, 1, and 2 as 92, 76, 0, respectively, with an accuracy of 82%. The Loudness vs Energy Graph produced by the model is shown in Figure 3.2.
+Our final model was the SVM described above. The Classification Report above in Figure 3.1 shows precision values for Classes 0, 1, and 2 as 92%, 76%, 0%, respectively, with an accuracy of 82%. The Loudness vs Energy Graph produced by the model is shown in Figure 3.2.
  
 ## VI. Discussion
 
