@@ -320,7 +320,7 @@ When we built our first neural net, we had not realized the issue with our logis
 <br>*Fig 2.5*<br>
 
 ### Model 2: SVM
-Our SVM model also started with binary classification, but it still got 67% accuracy.  We then adjusted it to predict all 3 classes and tested different kernels.  We settled on ‘rbf’, and this gave us an accuracy of 81%.
+Our SVM model also started with binary classification, but it still got 67% accuracy.  We then adjusted it to predict all 3 classes and tested different kernels.  We settled on ‘rbf’, and this gave us an accuracy of 82%.
 
 ### Shortcomings
  
