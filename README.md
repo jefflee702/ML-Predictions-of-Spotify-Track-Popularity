@@ -1,4 +1,4 @@
-# ML Predictions of Track Popularity
+# ML Predictions of Spotify Track Popularity
 
 ## I. Group Members
 1. Xiaoling Huang
